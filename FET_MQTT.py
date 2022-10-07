@@ -12,7 +12,7 @@ def publish_mqtt():
     data01  = [
         {"access_token": "WImETF1BotX8l1xIkZ3K",
          "app": "ems_demo_fet",
-         "ts": 1663824407000,
+         "ts": 1665172851000,
          "type": "METER",
          "data": [{"values": {"bb": "22","demand": "50","voltage": "380","power": "300","current_r": "20","current_s": "20","current_t": "20"}}]}]
     try:
