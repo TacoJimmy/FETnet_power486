@@ -1,0 +1,8 @@
+{
+    "appInfo" : {     
+        "COM01_BaudRate": "19200",
+        "COM01_DataSize": "8",
+        "COM01_Parity": "N",
+        "COM01_StopBits": "1"
+    }
+}
