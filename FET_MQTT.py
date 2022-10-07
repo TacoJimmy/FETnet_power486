@@ -33,5 +33,5 @@ def publish_mqtt():
         #return ('loss_connect')
 
 while True:
-    publish_mqtt
+    publish_mqtt()
     time.sleep(6000)
