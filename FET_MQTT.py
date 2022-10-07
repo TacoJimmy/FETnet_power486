@@ -34,4 +34,4 @@ def publish_mqtt():
 
 while True:
     publish_mqtt()
-    time.sleep(6000)
+    time.sleep(60)
