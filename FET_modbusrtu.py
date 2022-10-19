@@ -141,6 +141,7 @@ def get_MainPayLoad(payload):
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp}]}]
+    return PowerPayload[0]
  
 if __name__ == '__main__':
     #print (getCom1_Power('/dev/ttyS4',9600,3,'INPUT'))
