@@ -30,7 +30,7 @@ def PowerLoop():
     f.close
     return data
 
-def getPowerLoop01(HOST_Addr, HOST_Port):
+def getPowerLoop01(HOST_Addr, HOST_Port, voltage, pf):
     
     clamp32 = {}
     PowerPayload = {}
@@ -39,12 +39,12 @@ def getPowerLoop01(HOST_Addr, HOST_Port):
         master = modbus_tcp.TcpMaster(host=HOST_Addr,port=HOST_Port)
         master.set_timeout(5.0)
         clamp_data = master.execute(1, cst.READ_HOLDING_REGISTERS, 0, 54)
-        print (clamp_data)
+        #print (clamp_data)
         for i in range(27):
             clamp32[i] = ReadFloat((clamp_data[i*2+1], clamp_data[i*2]))
     
         for i in range(3):
-            clamp[i]["voltage"]=380
+            clamp[i]["voltage"]=voltage
             clamp[i]["current_r"]=round(clamp32[i*9])
             clamp[i]["current_s"]=round(clamp32[i*9+3])
             clamp[i]["current_t"]=round(clamp32[i*9+6])
@@ -55,7 +55,7 @@ def getPowerLoop01(HOST_Addr, HOST_Port):
             clamp[i]["battery_s"]=clamp32[i*9+5]
             clamp[i]["battery_t"]=clamp32[i*9+8]
             clamp[i]["power"]= round((380*1.7*(clamp32[i*9]+clamp32[i*9+3]+clamp32[i*9+6]))/1000,1)
-            clamp[i]["pf"]= 0.9
+            clamp[i]["pf"]= pf
             clamp[i]["alive"]= 1
             payload_data = [{"values":clamp[i]}]
             
@@ -94,7 +94,7 @@ def getPowerLoop01(HOST_Addr, HOST_Port):
     
     return PowerPayload
 
-def getPowerLoop02(HOST_Addr, HOST_Port):
+def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
     
     clamp32 = {}
     PowerPayload = {}
@@ -103,12 +103,12 @@ def getPowerLoop02(HOST_Addr, HOST_Port):
         master = modbus_tcp.TcpMaster(host=HOST_Addr,port=HOST_Port)
         master.set_timeout(5.0)
         clamp_data = master.execute(1, cst.READ_HOLDING_REGISTERS, 0, 54)
-        print (clamp_data)
+        #print (clamp_data)
         for i in range(27):
             clamp32[i] = ReadFloat((clamp_data[i*2+1], clamp_data[i*2]))
     
         for i in range(3):
-            clamp[i]["voltage"]=380
+            clamp[i]["voltage"]=voltage
             clamp[i]["current_r"]=clamp32[i*9]
             clamp[i]["current_s"]=clamp32[i*9+3]
             clamp[i]["current_t"]=clamp32[i*9+6]
@@ -119,7 +119,7 @@ def getPowerLoop02(HOST_Addr, HOST_Port):
             clamp[i]["battery_s"]=clamp32[i*9+5]
             clamp[i]["battery_t"]=clamp32[i*9+8]
             clamp[i]["power"]= round((380*1.7*(clamp32[i*9]+clamp32[i*9+3]+clamp32[i*9+6]))/1000,1)
-            clamp[i]["pf"]= 0.9
+            clamp[i]["pf"]= pf
             clamp[i]["alive"]= 1
             payload_data = [{"values":clamp[i]}]
             
