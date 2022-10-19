@@ -58,4 +58,4 @@ def read_3p3w_meter(PORT,ID,loop):
         return (MainPW_meter) 
 if __name__ == '__main__':
     #print (getCom1_Power('/dev/ttyS4',9600,3,'INPUT'))
-    print (read_3p3w_meter('/dev/ttyS1',3,1))
+    print (read_3p3w_meter('/dev/ttyS1',4,1))
