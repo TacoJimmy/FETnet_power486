@@ -104,4 +104,4 @@ if __name__ == '__main__':
     #air condition 2
     print (read_3p3w_meter('/dev/ttyS1',4,1))
     
-    read_Main_PowerMeter('/dev/ttyS1',1,1)
+    print (read_Main_PowerMeter('/dev/ttyS1',1,1))
