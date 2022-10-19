@@ -179,6 +179,7 @@ def CleanPowerFlag():
     
 if __name__ == '__main__':
     print(getPowerLoop01('192.168.1.10',502))
+    time.sleep(2)
     print(getPowerLoop02('192.168.1.11',502))
     #SavePowerLoop()
     
