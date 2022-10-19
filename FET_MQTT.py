@@ -5,6 +5,7 @@ import ssl
 import paho.mqtt.client as mqtt
 import time
 import FET_modbustcp
+import FET_modbusrtu
 
 def PowerLoop():
     with open('static/data/PowerMeter.json', 'r') as f:
@@ -45,10 +46,14 @@ def MqttPublish():
     try:
         #PowerInfor = PowerLoop()
         
-        MainLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502)
-        MqttSend(MainLoop01)
-        MainLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502)
-        MqttSend(MainLoop02)
+        MainLoop01 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',1,1)
+        print(MainLoop01)
+        MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
+        print(MainLoop02)
+        SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502)
+        MqttSend(SubLoop01)
+        SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502)
+        MqttSend(SubLoop02)
                 
         print('ok')
         return ('OK')
