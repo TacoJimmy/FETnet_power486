@@ -50,9 +50,9 @@ def MqttPublish():
         print(MainLoop01)
         MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
         print(MainLoop02)
-        #SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502)
+        #SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
         #MqttSend(SubLoop01)
-        #SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502)
+        #SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
         #MqttSend(SubLoop02)
                 
         print('ok')
