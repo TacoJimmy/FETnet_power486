@@ -19,6 +19,12 @@
 			<hr style="border: 5px solid;"/>
     
 		<h2>COM01 Setting</h2>
+		<p>COM01_Status:
+			<select id="COM01_Status" name="COM01_Status" type="text">
+				<option value="Enable">Enable</option>
+				<option value="Disable">Disable</option>
+			</select>
+		</p>
 		<p>COM01_BaudRate:
 			<select id="COM01_BaudRate" name="COM01_BaudRate" type="number">
 				<option value="19200">19200</option>
@@ -48,6 +54,12 @@
 		<hr>
 
     <h2>COM02 Setting</h2>
+	<p>COM02_Status:
+			<select id="COM02_Status" name="COM02_Status" type="text">
+				<option value="Enable">Enable</option>
+				<option value="Disable">Disable</option>
+			</select>
+		</p>
     <p>COM02_BaudRate:
         <select id="COM02_BaudRate" name="COM02_BaudRate" type="number">
 			<option value="19200">19200</option>
@@ -178,11 +190,13 @@
 			var $btnTCP02 = $('#btnTCP02');
 			var $btnMQTT = $('#btnMQTT');
 			
+			var $edtAppCOM01Status = $('#COM01_Status');
 			var $edtAppCOM01BaudRate = $('#COM01_BaudRate');
             var $edtAppCOM01DataSize = $('#COM01_DataSize');
             var $edtAppCOM01Parity = $('#COM01_Parity');
             var $edtAppCOM01StopBits = $('#COM01_StopBits');
 			
+			var $edtAppCOM02Status = $('#COM02_Status');
 			var $edtAppCOM02BaudRate = $('#COM02_BaudRate');
             var $edtAppCOM02DataSize = $('#COM02_DataSize');
             var $edtAppCOM02Parity = $('#COM02_Parity');
@@ -229,7 +243,8 @@
                 $.ajax({
                     url: '/setup/COM01',
                     data: {
-                        "COM01_BaudRate" : $edtAppCOM01BaudRate.val(),
+                        "COM01_Status" : $edtAppCOM01Status.val(),
+						"COM01_BaudRate" : $edtAppCOM01BaudRate.val(),
 						"COM01_DataSize" : $edtAppCOM01DataSize.val(),
                         "COM01_Parity" : $edtAppCOM01Parity.val(),
                         "COM01_StopBits" : $edtAppCOM01StopBits.val(),
@@ -251,7 +266,8 @@
                 $.ajax({
                     url: '/setup/COM02',
                     data: {
-                        "COM02_BaudRate" : $edtAppCOM02BaudRate.val(),
+                        "COM02_Status" : $edtAppCOM02Status.val(),
+						"COM02_BaudRate" : $edtAppCOM02BaudRate.val(),
 						"COM02_DataSize" : $edtAppCOM02DataSize.val(),
                         "COM02_Parity" : $edtAppCOM02Parity.val(),
                         "COM02_StopBits" : $edtAppCOM02StopBits.val(),
