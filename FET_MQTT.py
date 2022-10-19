@@ -103,11 +103,11 @@ def MqttPublish():
         ACPayload = FET_modbusrtu.get_ACPayLoad(SubACLoop01,SubACLoop02)
         print(ACPayload)
         MqttMainSend(ACPayload)
-        #SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
-        #print(SubLoop01)
-        #MqttSend(SubLoop01)
-        #SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
-        #MqttSend(SubLoop02)
+        SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
+        print(SubLoop01)
+        MqttSend(SubLoop01)
+        SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
+        MqttSend(SubLoop02)
                 
         print('ok')
         return ('OK')
@@ -148,4 +148,4 @@ if __name__ == '__main__':
     while True:
         #PowerLoop()
         MqttPublish()
-        time.sleep(10)
+        time.sleep(60)
