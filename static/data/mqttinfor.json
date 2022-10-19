@@ -1,0 +1,11 @@
+{
+    "appInfo" : {     
+        "MQTT_ClientID": "smartbuilding_device",
+        "MQTT_UserName": "smartbuilding_device",
+        "MQTT_Password": "?3NXw+Pp",
+        "MQTT_topic": "/ems/v1/telemetry/demoNH468",
+		"MQTT_url": "mqttd.fetnet.net",
+		"MQTT_Port": 8883,
+		"MQTT_SSL": "Yes"
+    }
+}
