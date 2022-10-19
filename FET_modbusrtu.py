@@ -68,7 +68,7 @@ def read_Main_PowerMeter(PORT,ID,loop):
         pw_cur = master.execute(ID, cst.READ_HOLDING_REGISTERS, 321, 6)
         pw_power = master.execute(ID, cst.READ_HOLDING_REGISTERS, 338, 1)
         pw_pf = master.execute(ID, cst.READ_HOLDING_REGISTERS, 358, 1)
-        pw_consum = master.execute(ID, cst.READ_HOLDING_REGISTERS, 363, 2)
+        pw_consum = master.execute(ID, cst.READ_HOLDING_REGISTERS, 385, 2)
         
         MainPW_meter[0] = round(pw_va[0] * 0.1,1)
         MainPW_meter[1] = round(pw_cur[1] * 0.01,1)
@@ -76,7 +76,7 @@ def read_Main_PowerMeter(PORT,ID,loop):
         MainPW_meter[3] = round(pw_cur[5] * 0.01,1)
         MainPW_meter[4] = round(pw_power[0] * 0.01,1)
         MainPW_meter[5] = round(pw_pf[0]*0.001,1)
-        MainPW_meter[6] = round((pw_consum[0] + pw_consum[1] * 65535)*0.1,1)
+        MainPW_meter[6] = round((pw_consum[1] + pw_consum[0] * 65535)*0.1,1)
         MainPW_meter[7] = 1
         #MainPW_meter[0] =  round(pw_va[0] * 0.1,1)
         #MainPW_meter[1] =  round(pw_cur[0] * 0.01,1)
@@ -111,3 +111,4 @@ if __name__ == '__main__':
     print (read_3p3w_meter('/dev/ttyS1',4,1))
     
     print (read_Main_PowerMeter('/dev/ttyS1',1,1))
+    print (read_Main_PowerMeter('/dev/ttyS1',2,1))
