@@ -56,7 +56,7 @@ def MqttMainSend(mod_payload):
         data02 = client.on_connect
         data03 = client.publish(Mqttinfor['appInfo']['MQTT_topic'],json.dumps(mod_payload[0]))
         time.sleep(2)
-        data03 = client.publish(Mqttinfor['appInfo']['MQTT_topic'],json.dumps(mod_payload[0]))
+        data03 = client.publish(Mqttinfor['appInfo']['MQTT_topic'],json.dumps(mod_payload[1]))
         time.sleep(2)
         client.loop_stop()
         client.disconnect()
