@@ -55,6 +55,9 @@ def MqttMainSend(mod_payload):
         time.sleep(1)
         data02 = client.on_connect
         data03 = client.publish(Mqttinfor['appInfo']['MQTT_topic'],json.dumps(mod_payload[0]))
+        time.sleep(2)
+        data03 = client.publish(Mqttinfor['appInfo']['MQTT_topic'],json.dumps(mod_payload[0]))
+        time.sleep(2)
         client.loop_stop()
         client.disconnect()
         time.sleep(1)
@@ -67,8 +70,8 @@ def MqttPublish():
         #PowerInfor = PowerLoop()
         
         MainLoop01 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',1,1)
-        
-        MainPayload = FET_modbusrtu.get_MainPayLoad(MainLoop01)
+        MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
+        MainPayload = FET_modbusrtu.get_MainPayLoad(MainLoop01,MainLoop02)
         print(MainPayload)
         MqttMainSend(MainPayload)
 
