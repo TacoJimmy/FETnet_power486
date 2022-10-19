@@ -108,29 +108,29 @@ def get_MainPayLoad(payload1,payload2):
     clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
     
     try:
-        clamp[0]["voltage"]=payload1[0]
-        clamp[0]["current_r"]=payload1[1]
-        clamp[0]["current_s"]=payload1[2]
-        clamp[0]["current_t"]=payload1[3]
+        clamp[0]["voltage"]=round(payload1[0])
+        clamp[0]["current_r"]=round(payload1[1],1)
+        clamp[0]["current_s"]=round(payload1[2],1)
+        clamp[0]["current_t"]=round(payload1[3],1)
         clamp[0]["temperature_r"]=0
         clamp[0]["temperature_s"]=0
         clamp[0]["temperature_t"]=0
-        clamp[0]["power"]= payload1[4]
-        clamp[0]["pf"]= payload1[5]
-        clamp[0]["energy"] = payload1[6]
+        clamp[0]["power"]= round(payload1[4],1)
+        clamp[0]["pf"]= round(payload1[5]*100)
+        clamp[0]["energy"] = round(payload1[6],1)
         clamp[0]["alive"]= 1
         payload_data = [{"values":clamp}]
 
-        clamp[1]["voltage"]=payload2[0]
-        clamp[1]["current_r"]=payload2[1]
-        clamp[1]["current_s"]=payload2[2]
-        clamp[1]["current_t"]=payload2[3]
+        clamp[1]["voltage"]=round(payload2[0])
+        clamp[1]["current_r"]=round(payload2[1],1)
+        clamp[1]["current_s"]=round(payload2[2],1)
+        clamp[1]["current_t"]=round(payload2[3],1)
         clamp[1]["temperature_r"]=0
         clamp[1]["temperature_s"]=0
         clamp[1]["temperature_t"]=0
-        clamp[1]["power"]= payload2[4]
-        clamp[1]["pf"]= payload2[5]
-        clamp[1]["energy"] = payload2[6]
+        clamp[1]["power"]= round(payload2[4],1)
+        clamp[1]["pf"]= round(payload2[5]*100)
+        clamp[1]["energy"] = round(payload2[6],1)
         clamp[1]["alive"]= 1
         payload_data = [{"values":clamp}]
     except:
