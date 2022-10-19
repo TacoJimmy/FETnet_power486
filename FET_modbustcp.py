@@ -45,9 +45,9 @@ def getPowerLoop01(HOST_Addr, HOST_Port):
     
         for i in range(3):
             clamp[i]["voltage"]="380"
-            clamp[i]["current_r"]=str(clamp32[i*9])
-            clamp[i]["current_s"]=str(clamp32[i*9+3])
-            clamp[i]["current_t"]=str(clamp32[i*9+6])
+            clamp[i]["current_r"]=str(round(clamp32[i*9],0))
+            clamp[i]["current_s"]=str(round(clamp32[i*9+3],0))
+            clamp[i]["current_t"]=str(round(clamp32[i*9+6],0))
             clamp[i]["temperature_r"]=str(clamp32[i*9+1])
             clamp[i]["temperature_s"]=str(clamp32[i*9+4])
             clamp[i]["temperature_t"]=str(clamp32[i*9+7])
