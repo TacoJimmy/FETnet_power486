@@ -106,6 +106,7 @@ def read_Main_PowerMeter(PORT,ID,loop):
 def get_MainPayLoad(payload):
     PowerPayload = {}
     clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
+    '''
     try:
         clamp["voltage"]=payload[0]
         clamp["current_r"]=payload[1]
@@ -134,7 +135,7 @@ def get_MainPayLoad(payload):
         clamp["pf"]= 0
         clamp["alive"]= 2
         payload_data = [{"values":clamp}]
-            
+    '''        
     
     
     PowerPayload[0] = [{"access_token": "khO4exKzLAkZRr9VdrJx",
