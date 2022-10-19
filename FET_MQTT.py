@@ -43,6 +43,24 @@ def MqttSend(mod_payload):
         print ('error')
         return ('error')
 
+def MqttMainSend(mod_payload):
+    Mqttinfor = ReadMqttInfor()
+    try:
+        client = mqtt.Client('', True, None, mqtt.MQTTv31)
+        client.username_pw_set(Mqttinfor['appInfo']['MQTT_UserName'], Mqttinfor['appInfo']['MQTT_Password'])
+        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+        client.tls_set_context(context)
+        client.connect(Mqttinfor['appInfo']['MQTT_url'], Mqttinfor['appInfo']['MQTT_Port'], 60)
+        client.loop_start()
+        time.sleep(1)
+        data02 = client.on_connect
+        data03 = client.publish(Mqttinfor['appInfo']['MQTT_topic'],json.dumps(mod_payload[0]))
+        client.loop_stop()
+        client.disconnect()
+        time.sleep(1)
+    except:
+        print ('error')
+        return ('error')
 
 def MqttPublish():
     try:
@@ -52,7 +70,7 @@ def MqttPublish():
         
         MainPayload = FET_modbusrtu.get_MainPayLoad(MainLoop01)
         print(MainPayload)
-        MqttSend(MainPayload)
+        MqttMainSend(MainPayload)
 
         #MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
         #print(MainLoop02)
