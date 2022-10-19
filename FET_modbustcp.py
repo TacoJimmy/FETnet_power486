@@ -44,7 +44,7 @@ def getPowerLoop01(HOST_Addr, HOST_Port):
             clamp32[i] = ReadFloat((clamp_data[i*2+1], clamp_data[i*2]))
     
         for i in range(3):
-            clamp[i]["voltage"]="380"
+            clamp[i]["voltage"]=380
             clamp[i]["current_r"]=str(round(clamp32[i*9]))
             clamp[i]["current_s"]=str(round(clamp32[i*9+3]))
             clamp[i]["current_t"]=str(round(clamp32[i*9+6]))
@@ -108,7 +108,7 @@ def getPowerLoop02(HOST_Addr, HOST_Port):
             clamp32[i] = ReadFloat((clamp_data[i*2+1], clamp_data[i*2]))
     
         for i in range(3):
-            clamp[i]["voltage"]="380"
+            clamp[i]["voltage"]=380
             clamp[i]["current_r"]=str(clamp32[i*9])
             clamp[i]["current_s"]=str(clamp32[i*9+3])
             clamp[i]["current_t"]=str(clamp32[i*9+6])
