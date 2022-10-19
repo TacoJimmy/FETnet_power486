@@ -1,1 +1,1 @@
-{"appInfo": {"COM02_BaudRate": "19200", "COM02_DataSize": "8", "COM02_Parity": "N", "COM02_StopBits": "1"}}
+{"appInfo": {"COM02_BaudRate": "19200", "COM02_DataSize": "8", "COM02_Parity": "N", "COM02_Status": "Enable", "COM02_StopBits": "1"}}
