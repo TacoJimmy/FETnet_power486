@@ -1,0 +1,38 @@
+{
+	"MainLoop01" : {
+		"access_token": "WImETF1BotX8l1xIkZ3K",
+        "app": "ems_demo_fet",
+        "type": "METER",
+        "data":[{"values": {
+			"voltage": "111",
+			"current_r": "11",
+            "current_s": "11",
+            "current_t": "11",
+            "power": "11",
+            "pf": "11",
+            "energy": "11",
+            "temperature_r": "11",
+            "temperature_s": "11",
+            "temperature_t": "11",
+            "demand": "11",
+            "alive": "11",
+			"remark": "11"
+			}
+		},{"values": {
+			"voltage": "22",
+			"current_r": "22",
+            "current_s": "22",
+            "current_t": "22",
+            "power": "22",
+            "pf": "22",
+            "energy": "22",
+            "temperature_r": "22",
+            "temperature_s": "22",
+            "temperature_t": "2",
+            "demand": "22",
+            "alive": "22",
+			"remark": "22"
+			}
+		}]
+	}
+}
