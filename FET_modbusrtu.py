@@ -106,42 +106,42 @@ def read_Main_PowerMeter(PORT,ID,loop):
 def get_MainPayLoad(payload):
     PowerPayload = {}
     clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
-    '''
+    
     try:
-        clamp["voltage"]=payload[0]
-        clamp["current_r"]=payload[1]
-        clamp["current_s"]=payload[2]
-        clamp["current_t"]=payload[3]
-        clamp["temperature_r"]=0
-        clamp["temperature_s"]=0
-        clamp["temperature_t"]=0
-        clamp["power"]= payload[4]
-        clamp["pf"]= payload[5]
-        clamp["energy"] = payload[6]
-        clamp["alive"]= 2
+        clamp[0]["voltage"]=payload[0]
+        clamp[0]["current_r"]=payload[1]
+        clamp[0]["current_s"]=payload[2]
+        clamp[0]["current_t"]=payload[3]
+        clamp[0]["temperature_r"]=0
+        clamp[0]["temperature_s"]=0
+        clamp[0]["temperature_t"]=0
+        clamp[0]["power"]= payload[4]
+        clamp[0]["pf"]= payload[5]
+        clamp[0]["energy"] = payload[6]
+        clamp[0]["alive"]= 2
         payload_data = [{"values":clamp}]
     except:
-        clamp["voltage"]=0
-        clamp["current_r"]=0
-        clamp["current_s"]=0
-        clamp["current_t"]=0
-        clamp["temperature_r"]=0
-        clamp["temperature_s"]=0
-        clamp["temperature_t"]=0
-        clamp["battery_r"]=0
-        clamp["battery_s"]=0
-        clamp["battery_t"]=0
-        clamp["power"]= 0
-        clamp["pf"]= 0
-        clamp["alive"]= 2
+        clamp[0]["voltage"]=0
+        clamp[0]["current_r"]=0
+        clamp[0]["current_s"]=0
+        clamp[0]["current_t"]=0
+        clamp[0]["temperature_r"]=0
+        clamp[0]["temperature_s"]=0
+        clamp[0]["temperature_t"]=0
+        clamp[0]["battery_r"]=0
+        clamp[0]["battery_s"]=0
+        clamp[0]["battery_t"]=0
+        clamp[0]["power"]= 0
+        clamp[0]["pf"]= 0
+        clamp[0]["alive"]= 2
         payload_data = [{"values":clamp}]
-    '''        
+            
     
     
     PowerPayload[0] = [{"access_token": "khO4exKzLAkZRr9VdrJx",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
-             "data": [{"values":clamp}]}]
+             "data": [{"values":clamp[0]}]}]
     return PowerPayload[0]
  
 if __name__ == '__main__':
