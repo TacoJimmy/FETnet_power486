@@ -36,8 +36,8 @@ def read_3p3w_meter(PORT,ID,loop):
         MainPW_meter[1] =  pw_cur[0] * 0.01
         MainPW_meter[2] =  pw_cur[1] * 0.01
         MainPW_meter[3] =  pw_cur[2] * 0.01
-        MainPW_meter[4] =  neg_num(pw_power[0]) * 0.01 
-        MainPW_meter[5] =  neg_num(pw_pf[0])*0.001
+        MainPW_meter[4] =  pw_power[0] * 0.01 
+        MainPW_meter[5] =  pw_pf[0]*0.001
         MainPW_meter[6] =  (pw_consum[1] + pw_consum[0] * 65535)*0.1
         MainPW_meter[7] = 1 
         master.close()
