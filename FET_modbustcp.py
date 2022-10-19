@@ -45,18 +45,18 @@ def getPowerLoop01(HOST_Addr, HOST_Port):
     
         for i in range(3):
             clamp[i]["voltage"]=380
-            clamp[i]["current_r"]=str(round(clamp32[i*9]))
-            clamp[i]["current_s"]=str(round(clamp32[i*9+3]))
-            clamp[i]["current_t"]=str(round(clamp32[i*9+6]))
-            clamp[i]["temperature_r"]=str(clamp32[i*9+1])
-            clamp[i]["temperature_s"]=str(clamp32[i*9+4])
-            clamp[i]["temperature_t"]=str(clamp32[i*9+7])
-            clamp[i]["battery_r"]=str(clamp32[i*9+2])
-            clamp[i]["battery_s"]=str(clamp32[i*9+5])
-            clamp[i]["battery_t"]=str(clamp32[i*9+8])
-            clamp[i]["power"]= str(round((380*1.7*(clamp32[i*9]+clamp32[i*9+3]+clamp32[i*9+6]))/1000,1))
-            clamp[i]["pf"]= str(0.9)
-            clamp[i]["alive"]= str(1)
+            clamp[i]["current_r"]=round(clamp32[i*9])
+            clamp[i]["current_s"]=round(clamp32[i*9+3])
+            clamp[i]["current_t"]=round(clamp32[i*9+6])
+            clamp[i]["temperature_r"]=clamp32[i*9+1]
+            clamp[i]["temperature_s"]=clamp32[i*9+4]
+            clamp[i]["temperature_t"]=clamp32[i*9+7]
+            clamp[i]["battery_r"]=clamp32[i*9+2]
+            clamp[i]["battery_s"]=clamp32[i*9+5]
+            clamp[i]["battery_t"]=clamp32[i*9+8]
+            clamp[i]["power"]= round((380*1.7*(clamp32[i*9]+clamp32[i*9+3]+clamp32[i*9+6]))/1000,1)
+            clamp[i]["pf"]= 0.9
+            clamp[i]["alive"]= 1
             payload_data = [{"values":clamp[i]}]
             
     except:
