@@ -161,7 +161,66 @@ def get_MainPayLoad(payload1,payload2):
              "type": "3P4WMETER",
              "data": [{"values":clamp[0]}]}]
     return PowerPayload
- 
+
+def get_ACPayLoad(payload1,payload2):
+    PowerPayload = {}
+    clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
+    
+    try:
+        clamp[0]["voltage"]=payload1[0]
+        clamp[0]["current_r"]=payload1[1]
+        clamp[0]["current_s"]=payload1[2]
+        clamp[0]["current_t"]=payload1[3]
+        clamp[0]["temperature_r"]=0
+        clamp[0]["temperature_s"]=0
+        clamp[0]["temperature_t"]=0
+        clamp[0]["power"]= payload1[4]
+        clamp[0]["pf"]= payload1[5]
+        clamp[0]["energy"] = payload1[6]
+        clamp[0]["alive"]= 1
+        payload_data = [{"values":clamp}]
+
+        clamp[1]["voltage"]=payload2[0]
+        clamp[1]["current_r"]=payload2[1]
+        clamp[1]["current_s"]=payload2[2]
+        clamp[1]["current_t"]=payload2[3]
+        clamp[1]["temperature_r"]=0
+        clamp[1]["temperature_s"]=0
+        clamp[1]["temperature_t"]=0
+        clamp[1]["power"]= payload2[4]
+        clamp[1]["pf"]= payload2[5]
+        clamp[1]["energy"] = payload2[6]
+        clamp[1]["alive"]= 1
+        payload_data = [{"values":clamp}]
+    except:
+        for i in range(2):
+            clamp[i]["voltage"]=0
+            clamp[i]["current_r"]=0
+            clamp[i]["current_s"]=0
+            clamp[i]["current_t"]=0
+            clamp[i]["temperature_r"]=0
+            clamp[i]["temperature_s"]=0
+            clamp[i]["temperature_t"]=0
+            clamp[i]["battery_r"]=0
+            clamp[i]["battery_s"]=0
+            clamp[i]["battery_t"]=0
+            clamp[i]["power"]= 0
+            clamp[i]["pf"]= 0
+            clamp[i]["alive"]= 2
+        payload_data = [{"values":clamp}]
+            
+    
+    
+    PowerPayload[0] = [{"access_token": "Zl0fvlfa7ZJAo8cX7RvO",
+             "app": "ems_demo_fet",
+             "type": "3P4WMETER",
+             "data": [{"values":clamp[0]}]}]
+    PowerPayload[1] = [{"access_token": "W8tpPG6jB0Ju3ogOxQoQ",
+             "app": "ems_demo_fet",
+             "type": "3P4WMETER",
+             "data": [{"values":clamp[0]}]}]
+    return PowerPayload
+
 if __name__ == '__main__':
     #print (getCom1_Power('/dev/ttyS4',9600,3,'INPUT'))
     #air condition 1
