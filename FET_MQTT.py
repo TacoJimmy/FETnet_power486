@@ -49,6 +49,7 @@ def MqttPublish():
         #PowerInfor = PowerLoop()
         
         MainLoop01 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',1,1)
+        print(MainLoop01)
         MainPayload = FET_modbusrtu.get_MainPayLoad(MainLoop01)
         print(MainPayload)
         #MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
