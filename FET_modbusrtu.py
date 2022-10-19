@@ -159,7 +159,7 @@ def get_MainPayLoad(payload1,payload2):
     PowerPayload[1] = [{"access_token": "wFeXyzMjZvTB4hhZ6a1c",
              "app": "ems_demo_fet",
              "type": "3P4WMETER",
-             "data": [{"values":clamp[0]}]}]
+             "data": [{"values":clamp[1]}]}]
     return PowerPayload
 
 def get_ACPayLoad(payload1,payload2):
@@ -213,12 +213,12 @@ def get_ACPayLoad(payload1,payload2):
     
     PowerPayload[0] = [{"access_token": "Zl0fvlfa7ZJAo8cX7RvO",
              "app": "ems_demo_fet",
-             "type": "3P4WMETER",
+             "type": "3P3WMETER",
              "data": [{"values":clamp[0]}]}]
     PowerPayload[1] = [{"access_token": "W8tpPG6jB0Ju3ogOxQoQ",
              "app": "ems_demo_fet",
-             "type": "3P4WMETER",
-             "data": [{"values":clamp[0]}]}]
+             "type": "3P3WMETER",
+             "data": [{"values":clamp[1]}]}]
     return PowerPayload
 
 if __name__ == '__main__':
