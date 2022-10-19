@@ -42,14 +42,17 @@ def MqttSend(mod_payload):
     except:
         print ('error')
         return ('error')
+
+
 def MqttPublish():
     try:
         #PowerInfor = PowerLoop()
         
         MainLoop01 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',1,1)
-        print(MainLoop01)
-        MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
-        print(MainLoop02)
+        MainPayload = FET_modbusrtu.get_MainPayLoad(MainLoop01)
+        print(MainPayload)
+        #MainLoop02 = FET_modbusrtu.read_Main_PowerMeter('/dev/ttyS1',2,1)
+        #print(MainLoop02)
         #SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
         #MqttSend(SubLoop01)
         #SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
