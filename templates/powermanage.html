@@ -19,7 +19,9 @@
 			<hr style="border: 5px solid;"/>
     
 		<h2>Power MainLoop01</h2>
+        <button id='btnPowerMainLoop01'><h3>Get MainLoop01</h3></button>
 		<div id="PowerMainLoop01"></div>
+		
 
     
 	
@@ -43,21 +45,19 @@
 
     <script>
         $(function () {
-            var $btnGet = $('#btnGet');
+            var $btnPowerMainLoop01 = $('#btnPowerMainLoop01');
 			var $PowerMainLoop01 = $('#PowerMainLoop01');
 
 
-			$btnGet.off('click').on('click', function () {
+			$btnPowerMainLoop01.off('click').on('click', function () {
                 $.ajax({
-                    url: '/powermanage/message',
+                    url: '/powermanage/subloop01',
                     data: {},
                     type: 'GET',
                     success: function (data) {
                         $PowerMainLoop01.text("");
-                        $PowerMainLoop01.append("COM1[BaudRate] : " + data.appInfo.COM01_BaudRate + "<br>");
-						$PowerMainLoop01.append("COM1[DataSize] : " + data.appInfo.COM01_DataSize + "<br>");
-						$PowerMainLoop01.append("COM1[Parity] : " + data.appInfo.COM01_Parity + "<br>");
-						$PowerMainLoop01.append("COM1[StopBits] : " + data.appInfo.COM01_StopBits + "<br>");
+                        $PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+
 
                     },
                     error: function (xhr) {
