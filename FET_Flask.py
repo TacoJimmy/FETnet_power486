@@ -44,6 +44,34 @@ def powermanageMessage():
             print("text : ", data)
         f.close
         return jsonify(data)
+@app.route('/powermanage/subloop03', methods=['GET'])
+def powersubloop03Message():
+    if request.method == "GET":
+        with open('static/data/PowerSubLoop03.json', 'r') as f:
+            data = json.load(f)
+        f.close
+    return jsonify(data)
+@app.route('/powermanage/subloop04', methods=['GET'])
+def powersubloop04Message():
+    if request.method == "GET":
+        with open('static/data/PowerSubLoop04.json', 'r') as f:
+            data = json.load(f)
+        f.close
+    return jsonify(data)
+@app.route('/powermanage/subloop05', methods=['GET'])
+def powersubloop05Message():
+    if request.method == "GET":
+        with open('static/data/PowerSubLoop05.json', 'r') as f:
+            data = json.load(f)
+        f.close
+    return jsonify(data)
+@app.route('/powermanage/subloop06', methods=['GET'])
+def powersubloop06Message():
+    if request.method == "GET":
+        with open('static/data/PowerSubLoop06.json', 'r') as f:
+            data = json.load(f)
+        f.close
+    return jsonify(data)
 @app.route('/powermanage/subloop07', methods=['GET'])
 def powersubloop07Message():
     if request.method == "GET":
