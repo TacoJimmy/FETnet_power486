@@ -75,22 +75,40 @@ def getPowerLoop01(HOST_Addr, HOST_Port, voltage, pf):
             clamp[i]["pf"]= str(i)
             clamp[i]["alive"]= 2
             payload_data = [{"values":clamp[i]}]
-            
+    if clamp[1]["alive"] == 1 :
+        clamp[1]["current_r"]=clamp[1]["current_r"]-clamp[0]["current_r"]
+        clamp[1]["current_s"]=clamp[1]["current_s"]-clamp[0]["current_s"]
+        clamp[1]["current_t"]=clamp[1]["current_t"]-clamp[0]["current_t"]
+        clamp[1]["power"]= clamp[1]["power"]-clamp[0]["power"]
     
+    clamp[0]["Loop_name"] = "F4NR2_SocketPower"
+    clamp[1]["Loop_name"] = "F4NL2_LightPower"
+    clamp[2]["Loop_name"] = "F4EL2_BackupPower"
     
-    PowerPayload[0] = [{"access_token": "RtKzCEgphGCq53CrCvq3",
+    PowerPayload[0] = [{"access_token": "QIki1lbgrdu9dRcCM4rs",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[0]}]}]
-    PowerPayload[1] = [{"access_token": "eEUb9N4SbTHpblayLA5Q",
+    PowerPayload[1] = [{"access_token": "khO4exKzLAkZRr9VdrJx",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[1]}]}]
-    PowerPayload[2] = [{"access_token": "QIki1lbgrdu9dRcCM4rs",
+    PowerPayload[2] = [{"access_token": "8G60nMefNfBUeoY7ebm6",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[2]}]}]
-
+    
+    with open('static/data/PowerSubLoop03.json', 'w') as f:
+        json.dump(PowerPayload[0], f)
+    f.close
+    
+    with open('static/data/PowerSubLoop04.json', 'w') as f:
+        json.dump(PowerPayload[1], f)
+    f.close
+    
+    with open('static/data/PowerSubLoop05.json', 'w') as f:
+        json.dump(PowerPayload[2], f)
+    f.close
     
     return PowerPayload
 
@@ -139,14 +157,22 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
             clamp[i]["pf"]= str(i)
             clamp[i]["alive"]= 2
             payload_data = [{"values":clamp[i]}]
-            
     
+    if clamp[1]["alive"] == 1 :
+        clamp[1]["current_r"]=clamp[1]["current_r"]-clamp[2]["current_r"]
+        clamp[1]["current_s"]=clamp[1]["current_s"]-clamp[2]["current_s"]
+        clamp[1]["current_t"]=clamp[1]["current_t"]-clamp[2]["current_t"]
+        clamp[1]["power"]= clamp[1]["power"]-clamp[2]["power"]
+
+    clamp[0]["Loop_name"] = "F4EL1_BackupPower"
+    clamp[1]["Loop_name"] = "F4NL1_LightPower"
+    clamp[2]["Loop_name"] = "F4NR1_SocketPower"
     
-    PowerPayload[0] = [{"access_token": "khO4exKzLAkZRr9VdrJx",
+    PowerPayload[0] = [{"access_token": "W8tpPG6jB0Ju3ogOxQoQ",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[0]}]}]
-    PowerPayload[1] = [{"access_token": "8G60nMefNfBUeoY7ebm6",
+    PowerPayload[1] = [{"access_token": "Zl0fvlfa7ZJAo8cX7RvO",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[1]}]}]
@@ -156,18 +182,20 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
              "data": [{"values":clamp[2]}]}]
 
     
-    return PowerPayload
-
-def SavePowerLoop():
-    PowerLoop01 = getPowerLoop01('HOST_Addr', 'HOST_Port')
-    with open('static/data/PowerLoop01.json', 'w') as f:
-        json.dump(PowerLoop01, f)
+    with open('static/data/PowerSubLoop08.json', 'w') as f:
+        json.dump(PowerPayload[0], f)
     f.close
     
-    PowerLoop02 = getPowerLoop01('HOST_Addr', 'HOST_Port')
-    with open('static/data/PowerLoop02.json', 'w') as f:
-        json.dump(PowerLoop02, f)
+    with open('static/data/PowerSubLoop07.json', 'w') as f:
+        json.dump(PowerPayload[1], f)
     f.close
+    
+    with open('static/data/PowerSubLoop06.json', 'w') as f:
+        json.dump(PowerPayload[2], f)
+    f.close
+
+
+    return PowerPayload
     
 def CleanPowerFlag():
     with open('static/data/PowerLoop01.json', 'r') as f:
