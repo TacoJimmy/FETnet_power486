@@ -17,10 +17,13 @@
 	<div class="tab_content">
 		<h1>Power MainLoop</h1>
 			<hr style="border: 5px solid;"/>
-    
-		<h2>Power MainLoop01</h2>
-        <button id='btnPowerMainLoop01'><h3>Get MainLoop01</h3></button>
-		<div id="PowerMainLoop01"></div>
+        <h3>Power SubLoop07</h3>
+        <button id='btnPowerMainLoop07'><h3>Get MainLoop01</h3></button>
+        <div id="PowerMainLoop07"></div>
+		<hr>
+        <h3>Power SubLoop08</h3>
+        <button id='btnPowerMainLoop08'><h3>Get MainLoop01</h3></button>
+		<div id="PowerMainLoop08"></div>
 		
 
     
@@ -45,13 +48,66 @@
 
     <script>
         $(function () {
-            var $btnPowerMainLoop01 = $('#btnPowerMainLoop01');
-			var $PowerMainLoop01 = $('#PowerMainLoop01');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop01');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop02');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop03');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop04');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop05');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop06');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop07');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop08');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop09');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop10');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop11');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop12');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop13');
+            var $btnPowerMainLoop08 = $('#btnPowerMainLoop14');
+			var $PowerMainLoop08 = $('#PowerMainLoop01');
+            var $PowerMainLoop08 = $('#PowerMainLoop02');
+            var $PowerMainLoop08 = $('#PowerMainLoop03');
+            var $PowerMainLoop08 = $('#PowerMainLoop04');
+            var $PowerMainLoop08 = $('#PowerMainLoop05');
+            var $PowerMainLoop08 = $('#PowerMainLoop06');
+            var $PowerMainLoop08 = $('#PowerMainLoop07');
+            var $PowerMainLoop08 = $('#PowerMainLoop08');
+            var $PowerMainLoop08 = $('#PowerMainLoop09');
+            var $PowerMainLoop08 = $('#PowerMainLoop10');
+            var $PowerMainLoop08 = $('#PowerMainLoop11');
+            var $PowerMainLoop08 = $('#PowerMainLoop12');
+            var $PowerMainLoop08 = $('#PowerMainLoop13');
+            var $PowerMainLoop08 = $('#PowerMainLoop14');
 
 
-			$btnPowerMainLoop01.off('click').on('click', function () {
+
+			$btnPowerMainLoop07.off('click').on('click', function () {
                 $.ajax({
-                    url: '/powermanage/subloop01',
+                    url: '/powermanage/subloop07',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerMainLoop01.text("");
+                        $PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerMainLoop01.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerMainLoop01.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerMainLoop01.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerMainLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerMainLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerMainLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerMainLoop01.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerMainLoop01.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerMainLoop01.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
+                        $PowerMainLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+            $btnPowerMainLoop08.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/subloop08',
                     data: {},
                     type: 'GET',
                     success: function (data) {
