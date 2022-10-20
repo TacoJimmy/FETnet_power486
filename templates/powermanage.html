@@ -18,11 +18,11 @@
 		<h1>Power MainLoop</h1>
 			<hr style="border: 5px solid;"/>
         <h3>Power SubLoop07</h3>
-        <button id='btnPowerMainLoop07'><h3>Get MainLoop01</h3></button>
+        <button id='btnPowerMainLoop07'><h3>Get MainLoop07</h3></button>
         <div id="PowerMainLoop07"></div>
 		<hr>
         <h3>Power SubLoop08</h3>
-        <button id='btnPowerMainLoop08'><h3>Get MainLoop01</h3></button>
+        <button id='btnPowerMainLoop08'><h3>Get MainLoop08</h3></button>
 		<div id="PowerMainLoop08"></div>
 		
 
@@ -85,19 +85,19 @@
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop01.text("");
-                        $PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop01.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop01.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop01.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop01.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop01.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop01.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerMainLoop07.text("");
+                        $PowerMainLoop07.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerMainLoop07.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerMainLoop07.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerMainLoop07.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerMainLoop07.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerMainLoop07.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerMainLoop07.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerMainLoop07.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerMainLoop07.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerMainLoop07.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerMainLoop07.append("power[kW] : " + data.power + "<br>");
+                        $PowerMainLoop07.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -111,19 +111,19 @@
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop01.text("");
-                        $PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop01.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop01.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop01.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop01.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop01.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop01.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerMainLoop08.text("");
+                        $PowerMainLoop08.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerMainLoop08.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerMainLoop08.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerMainLoop08.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerMainLoop08.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerMainLoop08.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerMainLoop08.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerMainLoop08.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerMainLoop08.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerMainLoop08.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerMainLoop08.append("power[kW] : " + data.power + "<br>");
+                        $PowerMainLoop08.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
