@@ -99,15 +99,15 @@ def getPowerLoop01(HOST_Addr, HOST_Port, voltage, pf):
              "data": [{"values":clamp[2]}]}]
     
     with open('static/data/PowerSubLoop03.json', 'w') as f:
-        json.dump(PowerPayload[0], f)
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
     f.close
     
     with open('static/data/PowerSubLoop04.json', 'w') as f:
-        json.dump(PowerPayload[1], f)
+        json.dump(PowerPayload[1][0]["data"][0]["values"], f)
     f.close
     
     with open('static/data/PowerSubLoop05.json', 'w') as f:
-        json.dump(PowerPayload[2], f)
+        json.dump(PowerPayload[2][0]["data"][0]["values"], f)
     f.close
     
     return PowerPayload
@@ -187,11 +187,11 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
     f.close
     
     with open('static/data/PowerSubLoop07.json', 'w') as f:
-        json.dump(PowerPayload[1], f)
+        json.dump(PowerPayload[1][0]["data"][0]["values"], f)
     f.close
     
     with open('static/data/PowerSubLoop06.json', 'w') as f:
-        json.dump(PowerPayload[2], f)
+        json.dump(PowerPayload[2][0]["data"][0]["values"], f)
     f.close
 
 
