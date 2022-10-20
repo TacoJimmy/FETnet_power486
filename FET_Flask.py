@@ -45,6 +45,15 @@ def powermanageMessage():
         f.close
         return jsonify(data)
 
+@app.route('/powermanage/subloop01', methods=['GET'])
+def powersubloop01Message():
+    if request.method == "GET":
+        with open('static/data/PowerSubLoop01.json', 'r') as f:
+            data = json.load(f)
+        f.close
+    return jsonify(data)
+
+
 @app.route('/setup/message', methods=['GET'])
 def getDataMessage():
     if request.method == "GET":
