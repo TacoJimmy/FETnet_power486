@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- HTML -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/jquery-3.6.0.min.js"></script>
+    <title>Web Service</title>
+</head>
+
+
+
+<div class="tab_css">
+	<input id="tab1" type="radio" name="tab" checked="checked"/>
+	<label for="tab1">Modbus-RTU</label>
+	<div class="tab_content">
+		<h1>Modbus-RTU Setting</h1>
+			<hr style="border: 5px solid;"/>
+    
+		<h2>COM01 Setting</h2>
+		<p>COM01_Status:
+			<select id="COM01_Status" name="COM01_Status" type="text">
+				<option value="Enable">Enable</option>
+				<option value="Disable">Disable</option>
+			</select>
+		</p>
+		<p>COM01_BaudRate:
+			<select id="COM01_BaudRate" name="COM01_BaudRate" type="number">
+				<option value="19200">19200</option>
+				<option value="9600">9600</option>
+			</select>
+		</p>
+		<p>COM01_DataSize:
+			<select id="COM01_DataSize" name="COM01_DataSize" type="number">
+				<option value="8">8</option>
+				<option value="7">7</option>
+			</select>
+		</p>
+		<p>COM01_Parity:
+			<select id="COM01_Parity" name="COM01_Parity" type="text">
+				<option value="N">None</option>
+				<option value="E">Even</option>
+				<option value="O">Odd</option>
+			</select>
+		</p>
+		<p>COM01_StopBits:
+			<select id="COM01_StopBits" name="COM01_StopBits" type="text">
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+		</p>
+		<button id="btnCOM01">COM01_Setting</button>
+		<hr>
+
+    <h2>COM02 Setting</h2>
+	<p>COM02_Status:
+			<select id="COM02_Status" name="COM02_Status" type="text">
+				<option value="Enable">Enable</option>
+				<option value="Disable">Disable</option>
+			</select>
+		</p>
+    <p>COM02_BaudRate:
+        <select id="COM02_BaudRate" name="COM02_BaudRate" type="number">
+			<option value="19200">19200</option>
+			<option value="9600">9600</option>
+		</select>
+    </p>
+    <p>COM02_DataSize:
+        <select id="COM02_DataSize" name="COM02_DataSize" type="number">
+			<option value="8">8</option>
+			<option value="7">7</option>
+		</select>
+    </p>
+    <p>COM02_Parity:
+        <select id="COM02_Parity" name="COM02_Parity" type="text">
+			<option value="N">None</option>
+			<option value="E">Even</option>
+			<option value="O">Odd</option>
+		</select>
+    </p>
+    <p>COM02_StopBits:
+        <select id="COM02_StopBits" name="COM02_StopBits" type="text">
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</select>
+	</p>
+    <button id="btnCOM02">COM02_Setting</button>
+    <hr>
+	
+	<h2>COM01</h2>
+    <button id='btnGet'>GET</button>
+	<hr>
+	
+    <h3>Console : </h3>
+    <div id="console_COMPORT"></div>
+	
+	</div>
+	
+	<input id="tab2" type="radio" name="tab"/>
+	<label for="tab2">Modbus-TCP</label>
+	<div class="tab_content">
+
+		<h1>Modbus-TCP Setting</h1>
+    
+		<h2>LAN1</h2>
+		<p>LAN1 IP:
+			<input type="text" class="form-input" id="LAN1_IP" name="LAN1_IP" placeholder="000.000.000.000"/>
+		</p>
+
+		<p>LAN1 PORT:
+			<input class="tab_content_01" id="LAN1_PORT" name="LAN1_PORT" type="number"></input>
+		</p>
+		<button id="btnTCP01">TCP01_Setting</button>
+		<hr>
+		
+		<h2>LAN2</h2>
+		<p>LAN2 IP:
+			<input type="text" class="form-input" id="LAN2_IP" name="LAN2_IP" placeholder="000.000.000.000"/>
+		</p>
+		<p>LAN2 PORT:
+			<input class="tab_content_01" id="LAN2_PORT" name="LAN2_PORT" type="number"></input>
+		</p>
+		<button id="btnTCP02">TCP02_Setting</button>
+		<hr>
+		
+		<h3>Console : </h3>
+		<div id="console_TCP"></div>
+
+	</div>
+
+	<input id="tab3" type="radio" name="tab"/>
+	<label for="tab3">MQTT</label>
+	<div class="tab_content">
+		<h1>MQTT Setting</h1>
+			<hr style="border: 5px solid;"/>
+		<p>Client ID:
+			<input id="Client_ID" name="Client_ID" type="text" />
+		</p>
+		<p>UserName:
+			<input id="UserName" name="UserName" type="text" />
+		</p>
+		<p>Password:
+			<input id="Password" name="Password" type="text" />
+		</p>
+		<p>MQTT URL:
+			<input id="Mqtt_url" name="Mqtt_url" type="text" />
+		</p>
+		<p>MQTT Port:
+			<input id="Mqtt_Port" name="Mqtt_Port" type="text" />
+		</p>
+		<p>SSL/TLS:
+			<select id="SSL_TLS" name="SSL_TLS" type="text">
+				<option value="Y">Yes</option>
+				<option value="N">No</option>
+			</select>
+		</p>
+		<button id="btnMQTT">MQTT_Setting</button>
+		<hr>
+		
+		<h3>Console : </h3>
+		<div id="console_MQTT"></div>
+		
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+<body>
+
+	
+
+
+    <script>
+        $(function () {
+            var $btnGet = $('#btnGet');
+			var $console = $('#console');
+            var $console_COMPORT = $('#console_COMPORT');
+			var $console_TCP = $('#console_TCP');
+			var $console_MQTT = $('#console_MQTT');
+            var $btnCOM01 = $('#btnCOM01');
+			var $btnCOM02 = $('#btnCOM02');
+			var $btnTCP01 = $('#btnTCP01');
+			var $btnTCP02 = $('#btnTCP02');
+			var $btnMQTT = $('#btnMQTT');
+			
+			var $edtAppCOM01Status = $('#COM01_Status');
+			var $edtAppCOM01BaudRate = $('#COM01_BaudRate');
+            var $edtAppCOM01DataSize = $('#COM01_DataSize');
+            var $edtAppCOM01Parity = $('#COM01_Parity');
+            var $edtAppCOM01StopBits = $('#COM01_StopBits');
+			
+			var $edtAppCOM02Status = $('#COM02_Status');
+			var $edtAppCOM02BaudRate = $('#COM02_BaudRate');
+            var $edtAppCOM02DataSize = $('#COM02_DataSize');
+            var $edtAppCOM02Parity = $('#COM02_Parity');
+            var $edtAppCOM02StopBits = $('#COM02_StopBits');
+			
+			var $edtAppTCP01IP = $('#LAN1_IP');
+            var $edtAppTCP01PORT = $('#LAN1_PORT');
+			
+			var $edtAppTCP02IP = $('#LAN2_IP');
+            var $edtAppTCP02PORT = $('#LAN2_PORT');
+			
+			var $edtAppMQTT_Client_ID = $('#Client_ID');
+            var $edtAppMQTT_UserName = $('#UserName');
+			var $edtAppMQTT_Password = $('#Password');
+            var $edtAppMQTT_url = $('#Mqtt_url');
+			var $edtAppMQTT_Port = $('#Mqtt_Port');
+			var $edtAppMQTT_SSL = $('#SSL_TLS');
+
+
+			$btnGet.off('click').on('click', function () {
+                $.ajax({
+                    url: '/setup/message',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $console_COMPORT.text("");
+                        $console_COMPORT.append("COM1[BaudRate] : " + data.appInfo.COM01_BaudRate + "<br>");
+						$console_COMPORT.append("COM1[DataSize] : " + data.appInfo.COM01_DataSize + "<br>");
+						$console_COMPORT.append("COM1[Parity] : " + data.appInfo.COM01_Parity + "<br>");
+						$console_COMPORT.append("COM1[StopBits] : " + data.appInfo.COM01_StopBits + "<br>");
+
+                        $edtAppCOM01BaudRate.val(data.appInfo.COM01_BaudRate);
+						$edtAppCOM01DataSize.val(data.appInfo.COM01_DataSize);
+						$edtAppCOM01Parity.val(data.appInfo.COM01_Parity);
+						$edtAppCOM01StopBits.val(data.appInfo.COM01_StopBits);
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+
+            $btnCOM01.off('click').on('click',function(){
+                $.ajax({
+                    url: '/setup/COM01',
+                    data: {
+                        "COM01_Status" : $edtAppCOM01Status.val(),
+						"COM01_BaudRate" : $edtAppCOM01BaudRate.val(),
+						"COM01_DataSize" : $edtAppCOM01DataSize.val(),
+                        "COM01_Parity" : $edtAppCOM01Parity.val(),
+                        "COM01_StopBits" : $edtAppCOM01StopBits.val(),
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        $console_COMPORT.text("result = ");
+                        $console_COMPORT.append(data.result);
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤111');
+						
+                    }
+                });
+
+            });
+			
+			$btnCOM02.off('click').on('click',function(){
+                $.ajax({
+                    url: '/setup/COM02',
+                    data: {
+                        "COM02_Status" : $edtAppCOM02Status.val(),
+						"COM02_BaudRate" : $edtAppCOM02BaudRate.val(),
+						"COM02_DataSize" : $edtAppCOM02DataSize.val(),
+                        "COM02_Parity" : $edtAppCOM02Parity.val(),
+                        "COM02_StopBits" : $edtAppCOM02StopBits.val(),
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        $console_COMPORT.text("result = ");
+                        $console_COMPORT.append(data.result);
+                    },
+                    error: function (xhr) {
+						alert(data);
+                        alert('Ajax request 發生錯誤222');
+						
+                    }
+                });
+
+            });
+			
+			$btnTCP01.off('click').on('click',function(){
+                $.ajax({
+                    url: '/setup/TCP01',
+                    data: {
+                        "TCP01_IP" : $edtAppTCP01IP.val(),
+						"TCP01_PORT" : $edtAppTCP01PORT.val(),
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        $console_TCP.text("result = ");
+                        $console_TCP.append(data.result);
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤111');
+						
+                    }
+                });
+
+            });
+			$btnTCP02.off('click').on('click',function(){
+                $.ajax({
+                    url: '/setup/TCP02',
+                    data: {
+                        "TCP02_IP" : $edtAppTCP02IP.val(),
+						"TCP02_PORT" : $edtAppTCP02PORT.val(),
+
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        $console_TCP.text("result = ");
+                        $console_TCP.append(data.result);
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤111');
+						
+                    }
+                });
+
+            });
+			$btnMQTT.off('click').on('click',function(){
+                $.ajax({
+                    url: '/setup/mqtt01',
+                    data: {
+                        "MQTT_ClientID" : $edtAppMQTT_Client_ID.val(),
+						"MQTT_UserName" : $edtAppMQTT_UserName.val(),
+						"MQTT_Password" : $edtAppMQTT_Password.val(),
+						"MQTT_url" : $edtAppMQTT_url.val(),
+						"MQTT_Port" : $edtAppMQTT_Port.val(),
+						"MQTT_SSL" : $edtAppMQTT_SSL.val(),
+
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        $console_MQTT.text("result = ");
+                        $console_MQTT.append(data.result);
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤111');
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+
+<style>
+	.tab_css{display:flex;flex-wrap:wrap;justify-content:center;}
+	.tab_css label{margin: 0 5px 5px 0; padding: 10px 16px; cursor: pointer; border-radius: 5px; background: #999; color: #fff; opacity: 0.5;}
+	.tab_content{order:1;display: none; width:100%; border-bottom: 3px solid #ddd; line-height: 1.6; font-size: .9em; padding: 15px; border: 1px solid #ddd; border-radius: 5px;}
+	.tab_css input:checked + label, .tab_css label:hover{opacity: 1; font-weight:bold;}
+	.tab_css input:checked + label + .tab_content{display: initial;}
+</style>
+
+</html>
