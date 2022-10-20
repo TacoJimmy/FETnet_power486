@@ -32,6 +32,19 @@ def webapi():
     return render_template('setup.html')
 
 
+@app.route('/powermanage')
+def webapi():
+    return render_template('powermanage.html')
+
+@app.route('/powermanage/message', methods=['GET'])
+def getDataMessage():
+    if request.method == "GET":
+        with open('static/data/message.json', 'r') as f:
+            data = json.load(f)
+            print("text : ", data)
+        f.close
+        return jsonify(data)
+
 @app.route('/setup/message', methods=['GET'])
 def getDataMessage():
     if request.method == "GET":
