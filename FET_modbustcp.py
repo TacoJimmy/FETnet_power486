@@ -183,7 +183,7 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
 
     
     with open('static/data/PowerSubLoop08.json', 'w') as f:
-        json.dump(PowerPayload[0], f)
+        json.dump(PowerPayload[0][0]["data"], f)
     f.close
     
     with open('static/data/PowerSubLoop07.json', 'w') as f:
