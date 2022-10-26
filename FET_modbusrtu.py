@@ -186,6 +186,14 @@ def get_MainPayLoad(payload1,payload2):
              "app": "ems_demo_fet",
              "type": "3P4WMETER",
              "data": [{"values":clamp[1]}]}]
+    
+    with open('static/data/PowerSubLoop01.json', 'w') as f:
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+    f.close
+    with open('static/data/PowerSubLoop02.json', 'w') as f:
+        json.dump(PowerPayload[1][0]["data"][0]["values"], f)
+    f.close
+    
     return PowerPayload
 
 def get_ACPayLoad(payload1,payload2):
