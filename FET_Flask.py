@@ -15,7 +15,7 @@ class Config(object):
             'func': '__main__:publish_PowerMeter',
             'args': (1, 2),   
             'trigger': 'interval',
-            'seconds': 60 
+            'minutes': 1 
         },
         {
             'id': 'read_com1',  
