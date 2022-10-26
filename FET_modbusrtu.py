@@ -245,11 +245,11 @@ def get_ACPayLoad(payload1,payload2):
             
     
     
-    PowerPayload[0] = [{"access_token": "Zl0fvlfa7ZJAo8cX7RvO",
+    PowerPayload[0] = [{"access_token": "Y6zh8VvY4cDzFJ2CjMUM",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[0]}]}]
-    PowerPayload[1] = [{"access_token": "W8tpPG6jB0Ju3ogOxQoQ",
+    PowerPayload[1] = [{"access_token": "k1aI1WDkbZQI0vSdjxR4",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[1]}]}]
