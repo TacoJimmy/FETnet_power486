@@ -61,18 +61,18 @@ def getPowerLoop01(HOST_Addr, HOST_Port, voltage, pf):
             
     except:
         for i in range(3):
-            clamp[i]["voltage"]=str(i)
-            clamp[i]["current_r"]=str(i)
-            clamp[i]["current_s"]=str(i)
-            clamp[i]["current_t"]=str(i)
-            clamp[i]["temperature_r"]=str(i)
-            clamp[i]["temperature_s"]=str(i)
-            clamp[i]["temperature_t"]=str(i)
-            clamp[i]["battery_r"]=str(i)
-            clamp[i]["battery_s"]=str(i)
-            clamp[i]["battery_t"]=str(i)
-            clamp[i]["power"]= str(i)
-            clamp[i]["pf"]= str(i)
+            clamp[i]["voltage"]=i
+            clamp[i]["current_r"]=i
+            clamp[i]["current_s"]=i
+            clamp[i]["current_t"]=i
+            clamp[i]["temperature_r"]=i
+            clamp[i]["temperature_s"]=i
+            clamp[i]["temperature_t"]=i
+            clamp[i]["battery_r"]=i
+            clamp[i]["battery_s"]=i
+            clamp[i]["battery_t"]=i
+            clamp[i]["power"]= i
+            clamp[i]["pf"]= i
             clamp[i]["alive"]= 2
             payload_data = [{"values":clamp[i]}]
     if clamp[1]["alive"] == 1 :
@@ -143,18 +143,18 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
             
     except:
         for i in range(3):
-            clamp[i]["voltage"]=str(i)
-            clamp[i]["current_r"]=str(i)
-            clamp[i]["current_s"]=str(i)
-            clamp[i]["current_t"]=str(i)
-            clamp[i]["temperature_r"]=str(i)
-            clamp[i]["temperature_s"]=str(i)
-            clamp[i]["temperature_t"]=str(i)
-            clamp[i]["battery_r"]=str(i)
-            clamp[i]["battery_s"]=str(i)
-            clamp[i]["battery_t"]=str(i)
-            clamp[i]["power"]= str(i)
-            clamp[i]["pf"]= str(i)
+            clamp[i]["voltage"]=i
+            clamp[i]["current_r"]=i
+            clamp[i]["current_s"]=i
+            clamp[i]["current_t"]=i
+            clamp[i]["temperature_r"]=i
+            clamp[i]["temperature_s"]=i
+            clamp[i]["temperature_t"]=i
+            clamp[i]["battery_r"]=i
+            clamp[i]["battery_s"]=i
+            clamp[i]["battery_t"]=i
+            clamp[i]["power"]= i
+            clamp[i]["pf"]= i
             clamp[i]["alive"]= 2
             payload_data = [{"values":clamp[i]}]
     
@@ -206,9 +206,9 @@ def CleanPowerFlag():
     f.close
     
 if __name__ == '__main__':
-    print(getPowerLoop01('192.168.1.10',502))
+    print(getPowerLoop01('192.168.1.10',502,380,0.9))
     time.sleep(2)
-    print(getPowerLoop02('192.168.1.11',502))
+    print(getPowerLoop02('192.168.1.11',502,380,0.9))
     #SavePowerLoop()
     
     #CleanPowerFlag()
