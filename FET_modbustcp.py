@@ -81,9 +81,18 @@ def getPowerLoop01(HOST_Addr, HOST_Port, voltage, pf):
         clamp[1]["current_t"]=clamp[1]["current_t"]-clamp[0]["current_t"]
         clamp[1]["power"]= clamp[1]["power"]-clamp[0]["power"]
     
+    with open('static/data/PowerLoop01.json', 'r') as f:
+        power_kwh01 = json.load(f)
+    f.close
+    clamp[0]["power_kwh"] = power_kwh01["power03_kwh"]
+    clamp[1]["power_kwh"] = power_kwh01["power04_kwh"]
+    clamp[2]["power_kwh"] = power_kwh01["power05_kwh"]
+    
     clamp[0]["Loop_name"] = "F4NR2_SocketPower"
     clamp[1]["Loop_name"] = "F4NL2_LightPower"
     clamp[2]["Loop_name"] = "F4EL2_BackupPower"
+    
+    
     
     PowerPayload[0] = [{"access_token": "QIki1lbgrdu9dRcCM4rs",
              "app": "ems_demo_fet",
@@ -163,7 +172,16 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
         clamp[1]["current_s"]=clamp[1]["current_s"]-clamp[2]["current_s"]
         clamp[1]["current_t"]=clamp[1]["current_t"]-clamp[2]["current_t"]
         clamp[1]["power"]= clamp[1]["power"]-clamp[2]["power"]
-
+    
+    with open('static/data/PowerLoop02.json', 'r') as f:
+        power_kwh02 = json.load(f)
+    f.close
+    clamp[0]["power_kwh"] = power_kwh02["power06_kwh"]
+    clamp[1]["power_kwh"] = power_kwh02["power07_kwh"]
+    clamp[2]["power_kwh"] = power_kwh02["power08_kwh"]
+    
+    
+    
     clamp[0]["Loop_name"] = "F4EL1_BackupPower"
     clamp[1]["Loop_name"] = "F4NL1_LightPower"
     clamp[2]["Loop_name"] = "F4NR1_SocketPower"
@@ -205,10 +223,74 @@ def CleanPowerFlag():
         json.dump(Power_data, g)
     f.close
     
-if __name__ == '__main__':
-    print(getPowerLoop01('192.168.1.10',502,380,0.9))
-    time.sleep(2)
-    print(getPowerLoop02('192.168.1.11',502,380,0.9))
-    #SavePowerLoop()
     
-    #CleanPowerFlag()
+def power_count():
+    power_kwh01 = {}
+    power_kwh02 = {}
+    powermeter01 = (getPowerLoop01('192.168.1.10',502,380,0.9))
+    
+    
+    with open('static/data/PowerLoop01.json', 'r') as f:
+        power_kwh01 = json.load(f)
+    f.close
+    power_kwh01["power03_kwh"]=power_kwh01["power03_kwh"] + (powermeter01[0][0]["data"][0]["values"]["power"]/240)
+    power_kwh01["power04_kwh"]=power_kwh01["power04_kwh"] + (powermeter01[1][0]["data"][0]["values"]["power"]/240)
+    power_kwh01["power05_kwh"]=power_kwh01["power05_kwh"] + (powermeter01[2][0]["data"][0]["values"]["power"]/240)
+    
+    with open('static/data/PowerLoop01.json', 'w') as g:
+        json.dump(power_kwh01, g)
+    g.close
+    
+    
+    powermeter02 = (getPowerLoop02('192.168.1.11',502,380,0.9))
+    
+    with open('static/data/PowerLoop02.json', 'r') as f:
+        power_kwh02 = json.load(f)
+    f.close
+    power_kwh02["power06_kwh"]=power_kwh02["power06_kwh"] + (powermeter02[0][0]["data"][0]["values"]["power"]/240)
+    power_kwh02["power07_kwh"]=power_kwh02["power07_kwh"] + (powermeter02[1][0]["data"][0]["values"]["power"]/240)
+    power_kwh02["power08_kwh"]=power_kwh02["power08_kwh"] + (powermeter02[2][0]["data"][0]["values"]["power"]/240)
+    with open('static/data/PowerLoop02.json', 'w') as g:
+        json.dump(power_kwh02, g)
+    g.close
+    
+    
+if __name__ == '__main__':
+    
+    power_kwh01 = {}
+    power_kwh02 = {}
+    powermeter01 = (getPowerLoop01('192.168.1.10',502,380,0.9))
+    print (powermeter01[0][0]["data"][0]["values"]["power"])
+    print (powermeter01[1][0]["data"][0]["values"]["power"])
+    print (powermeter01[2][0]["data"][0]["values"]["power"])
+    
+    with open('static/data/PowerLoop01.json', 'r') as f:
+        power_kwh01 = json.load(f)
+    f.close
+    power_kwh01["power03_kwh"]=power_kwh01["power03_kwh"] + (powermeter01[0][0]["data"][0]["values"]["power"]/60)
+    power_kwh01["power04_kwh"]=power_kwh01["power04_kwh"] + (powermeter01[1][0]["data"][0]["values"]["power"]/60)
+    power_kwh01["power05_kwh"]=power_kwh01["power05_kwh"] + (powermeter01[2][0]["data"][0]["values"]["power"]/60)
+    with open('static/data/PowerLoop01.json', 'w') as g:
+        json.dump(power_kwh01, g)
+    g.close
+    print (power_kwh01["power03_kwh"])
+    print (power_kwh01["power04_kwh"])
+    print (power_kwh01["power05_kwh"])
+    
+    time.sleep(2)
+    powermeter02 = (getPowerLoop02('192.168.1.11',502,380,0.9))
+    print (powermeter02[0][0]["data"][0]["values"]["power"])
+    print (powermeter02[1][0]["data"][0]["values"]["power"])
+    print (powermeter02[2][0]["data"][0]["values"]["power"])
+    with open('static/data/PowerLoop02.json', 'r') as f:
+        power_kwh02 = json.load(f)
+    f.close
+    power_kwh02["power06_kwh"]=power_kwh02["power06_kwh"] + (powermeter02[0][0]["data"][0]["values"]["power"]/60)
+    power_kwh02["power07_kwh"]=power_kwh02["power07_kwh"] + (powermeter02[1][0]["data"][0]["values"]["power"]/60)
+    power_kwh02["power08_kwh"]=power_kwh02["power08_kwh"] + (powermeter02[2][0]["data"][0]["values"]["power"]/60)
+    with open('static/data/PowerLoop02.json', 'w') as g:
+        json.dump(power_kwh02, g)
+    g.close
+    print (power_kwh02["power06_kwh"])
+    print (power_kwh02["power07_kwh"])
+    print (power_kwh02["power08_kwh"])
