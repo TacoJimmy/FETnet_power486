@@ -5,7 +5,7 @@ from flask import Flask
 from flask_apscheduler import APScheduler
 import FET_MQTT
 import FET_modbusrtu
-
+import FET_modbustcp
 app = Flask(__name__)
 
 class Config(object):
@@ -22,7 +22,7 @@ class Config(object):
             'func': '__main__:read_com1',
             'args': (1, 2),   
             'trigger': 'interval',
-            'seconds': 10 
+            'seconds': 15 
         }
     ]
     SCHEDULER_API_ENABLED = True
@@ -245,16 +245,11 @@ def publish_PowerMeter(a, b):
     FET_MQTT.MqttPublish()
     
 def read_com1(a, b):
-    '''
-    with open('static/data/COM01.json', 'r') as f:
-        com1_infor = json.load(f)
-    f.close
-    if com1_infor["appInfo"]["COM01_Status"] == "Enable":
-       modbus_data = FET_modbusrtu.getCom1_Power('COM3',int(com1_infor["appInfo"]["COM01_BaudRate"]),104,'INPUT')
-       print (type(modbus_data))
-       print (modbus_data)
-       #print (FET_MQTT.Pub_infor())
-    '''
+    try:
+        FET_modbustcp.power_count()   
+    except:
+        pass
+    
     
 if __name__ == '__main__':
     
