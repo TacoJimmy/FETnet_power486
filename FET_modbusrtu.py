@@ -2,6 +2,7 @@ import time
 import serial
 import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
+import json  
 
 def getCom1_Power(ComPort,BbaudRate,ID,Func):
     try:
@@ -53,7 +54,7 @@ def read_3p3w_meter(PORT,ID,loop):
         MainPW_meter[5] = 0
         MainPW_meter[6] = 0
         MainPW_meter[7] = 2
-        master.close()
+
         time.sleep(0.5)
         return (MainPW_meter)
 
@@ -102,6 +103,31 @@ def read_Main_PowerMeter(PORT,ID,loop):
         master.close()
         time.sleep(0.5)
         return (MainPW_meter)
+
+def get_subloop01():
+    
+    PowerPayload = {}
+    powerloop01 = read_Main_PowerMeter('/dev/ttyS1',1,1)
+    powerloop02 = read_Main_PowerMeter('/dev/ttyS1',2,1)
+    
+    PowerPayload[0] = [{"access_token": "WImETF1BotX8l1xIkZ3K",
+             "app": "ems_demo_fet",
+             "type": "3P4WMETER",
+             "data": [{"values":powerloop01[0]}]}]
+    PowerPayload[1] = [{"access_token": "wFeXyzMjZvTB4hhZ6a1c",
+             "app": "ems_demo_fet",
+             "type": "3P4WMETER",
+             "data": [{"values":powerloop02[1]}]}]
+    
+    with open('static/data/PowerSubLoop01.json', 'w') as f:
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+    f.close
+    
+    with open('static/data/PowerSubLoop02.json', 'w') as f:
+        json.dump(PowerPayload[1][0]["data"][0]["values"], f)
+    f.close
+    
+    return PowerPayload
 
 def get_MainPayLoad(payload1,payload2):
     PowerPayload = {}
@@ -219,14 +245,30 @@ def get_ACPayLoad(payload1,payload2):
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[1]}]}]
+    
+    with open('static/data/PowerSubLoop09.json', 'w') as f:
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+    f.close
+    
+    with open('static/data/PowerSubLoop10.json', 'w') as f:
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+    f.close
+    
     return PowerPayload
 
 if __name__ == '__main__':
     #print (getCom1_Power('/dev/ttyS4',9600,3,'INPUT'))
     #air condition 1
-    print (read_3p3w_meter('/dev/ttyS1',3,1))
+    #print (read_3p3w_meter('/dev/ttyS1',3,1))
     #air condition 2
-    print (read_3p3w_meter('/dev/ttyS1',4,1))
+    #print (read_3p3w_meter('/dev/ttyS1',4,1))
     
-    print (read_Main_PowerMeter('/dev/ttyS1',1,1))
-    print (read_Main_PowerMeter('/dev/ttyS1',2,1))
+    SubACLoop01 = read_3p3w_meter('/dev/ttyS1',3,1)
+    print(SubACLoop01)
+    SubACLoop02 = read_3p3w_meter('/dev/ttyS1',4,1)
+    print(SubACLoop02)
+    
+    print (get_ACPayLoad(SubACLoop01,SubACLoop02))
+    
+    #print (read_Main_PowerMeter('/dev/ttyS1',1,1))
+    #print (read_Main_PowerMeter('/dev/ttyS1',2,1))
