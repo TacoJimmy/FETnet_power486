@@ -205,7 +205,7 @@ def MqttPublish():
         #print(SubACLoop02)
         ACPayload = FET_modbusrtu.get_ACPayLoad(SubACLoop01,SubACLoop02)
         #print(ACPayload)
-        '''
+        
         MqttMainSend(ACPayload)
         SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
         MqttSend(SubLoop01)
@@ -214,7 +214,7 @@ def MqttPublish():
         
         Mainloop01Cal()
         Mainloop02Cal()
-        '''        
+               
         print('ok')
         return ('OK')
         
