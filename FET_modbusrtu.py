@@ -257,7 +257,11 @@ def get_ACPayLoad(payload1,payload2):
     return PowerPayload
 
 if __name__ == '__main__':
-    #print (getCom1_Power('/dev/ttyS4',9600,3,'INPUT'))
+    
+    print(read_Main_PowerMeter('/dev/ttyS1',1,1))
+    
+    '''
+    #print (getCom1_Power('/dev/ttyS1',1,1))
     #air condition 1
     #print (read_3p3w_meter('/dev/ttyS1',3,1))
     #air condition 2
@@ -272,3 +276,4 @@ if __name__ == '__main__':
     
     #print (read_Main_PowerMeter('/dev/ttyS1',1,1))
     #print (read_Main_PowerMeter('/dev/ttyS1',2,1))
+    '''
