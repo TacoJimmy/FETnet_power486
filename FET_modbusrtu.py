@@ -251,7 +251,7 @@ def get_ACPayLoad(payload1,payload2):
     f.close
     
     with open('static/data/PowerSubLoop10.json', 'w') as f:
-        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+        json.dump(PowerPayload[1][0]["data"][0]["values"], f)
     f.close
     
     return PowerPayload
