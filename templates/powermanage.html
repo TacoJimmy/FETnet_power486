@@ -135,33 +135,6 @@
             var $PowerSubLoop13 = $('#PowerSubLoop13');
             var $PowerSubLoop14 = $('#PowerSubLoop14');
             
-			$btnPowerSubLoop01.off('click').on('click', function () {
-                $.ajax({
-                    url: '/powermanage/subloop01',
-                    data: {},
-                    type: 'GET',
-                    success: function (data) {
-                        $PowerSubLoop01.text("");
-                        $PowerSubLoop01.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerSubLoop01.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerSubLoop01.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerSubLoop01.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerSubLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerSubLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerSubLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerSubLoop01.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerSubLoop01.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerSubLoop01.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerSubLoop01.append("power[kW] : " + data.power + "<br>");
-                        $PowerSubLoop01.append("pf[%] : " + data.pf*100 + "<br>");
-                        
-                    },
-                    error: function (xhr) {
-                        alert('Ajax request 發生錯誤');
-                    }
-                });
-            });
-			
 			$btnPowerMainLoop01.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/mainloop01',
