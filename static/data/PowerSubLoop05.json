@@ -1,1 +1,1 @@
-{"voltage": "2", "current_r": "2", "current_s": "2", "current_t": "2", "temperature_r": "2", "temperature_s": "2", "temperature_t": "2", "battery_r": "2", "battery_s": "2", "battery_t": "2", "power": "2", "pf": "2", "alive": 2, "Loop_name": "F4EL2_BackupPower"}
+{"voltage": 380, "current_r": 5, "current_s": 2, "current_t": 4, "temperature_r": 24.0, "temperature_s": 28.0, "temperature_t": 28.0, "battery_r": 2.0, "battery_s": 2.0, "battery_t": 2.0, "power": 7.1, "pf": 0.9, "alive": 1, "Loop_name": "F4EL2_BackupPower"}
