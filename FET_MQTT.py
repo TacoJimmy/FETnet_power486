@@ -198,22 +198,22 @@ def MqttPublish():
         MainPayload = FET_modbusrtu.get_MainPayLoad(MainLoop01,MainLoop02)
         #print(MainPayload)
         MqttMainSend(MainPayload)
+        '''
         SubACLoop01 = FET_modbusrtu.read_3p3w_meter('/dev/ttyS1',3,1)
         #print(SubACLoop01)
         SubACLoop02 = FET_modbusrtu.read_3p3w_meter('/dev/ttyS1',4,1)
         #print(SubACLoop02)
         ACPayload = FET_modbusrtu.get_ACPayLoad(SubACLoop01,SubACLoop02)
         #print(ACPayload)
-        #MqttMainSend(ACPayload)
+        MqttMainSend(ACPayload)
         SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
-        #print(SubLoop01)
         MqttSend(SubLoop01)
         SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
         MqttSend(SubLoop02)
         
         Mainloop01Cal()
         Mainloop02Cal()
-                
+        '''        
         print('ok')
         return ('OK')
         
