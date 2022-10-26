@@ -183,9 +183,9 @@ def getPowerLoop02(HOST_Addr, HOST_Port, voltage, pf):
     clamp[0]["power_kwh"] = power_kwh02["power06_kwh"]
     clamp[1]["power_kwh"] = power_kwh02["power07_kwh"]
     clamp[2]["power_kwh"] = power_kwh02["power08_kwh"]
-    clamp[0]["energy"] = power_kwh01["power06_kwh"]
-    clamp[1]["energy"] = power_kwh01["power07_kwh"]
-    clamp[2]["energy"] = power_kwh01["power08_kwh"]
+    clamp[0]["energy"] = power_kwh02["power06_kwh"]
+    clamp[1]["energy"] = power_kwh02["power07_kwh"]
+    clamp[2]["energy"] = power_kwh02["power08_kwh"]
     
     
     clamp[0]["Loop_name"] = "F4EL1_BackupPower"
