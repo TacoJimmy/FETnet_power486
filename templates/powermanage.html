@@ -157,7 +157,7 @@
                         $PowerMainLoop01.append("battery_s : " + data.battery_s + "<br>");
                         $PowerMainLoop01.append("battery_t : " + data.battery_t + "<br>");
                         $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerMainLoop01.append("pf[%] : " + data.pf + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -183,7 +183,7 @@
                         $PowerMainLoop02.append("battery_s : " + data.battery_s + "<br>");
                         $PowerMainLoop02.append("battery_t : " + data.battery_t + "<br>");
                         $PowerMainLoop02.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop02.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerMainLoop02.append("pf[%] : " + data.pf + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -209,7 +209,7 @@
                         $PowerSubLoop01.append("battery_s : " + data.battery_s + "<br>");
                         $PowerSubLoop01.append("battery_t : " + data.battery_t + "<br>");
                         $PowerSubLoop01.append("power[kW] : " + data.power*0.001 + "<br>");
-                        $PowerSubLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop01.append("pf[%] : " + data.pf + "<br>");
 						$PowerSubLoop01.append("powerconsumption[kwh] : " + data.energy + "<br>");
                         
                     },
@@ -237,7 +237,7 @@
                         $PowerSubLoop02.append("battery_s : " + data.battery_s + "<br>");
                         $PowerSubLoop02.append("battery_t : " + data.battery_t + "<br>");
                         $PowerSubLoop02.append("power[kW] : " + data.power*0.001 + "<br>");
-                        $PowerSubLoop02.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop02.append("pf[%] : " + data.pf + "<br>");
 						$PowerSubLoop02.append("powerconsumption[kwh] : " + data.energy + "<br>");
                         
                     },
