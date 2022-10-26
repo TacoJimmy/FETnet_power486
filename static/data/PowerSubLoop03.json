@@ -1,1 +1,1 @@
-{"voltage": 380, "current_r": 5, "current_s": 2, "current_t": 5, "temperature_r": 23.0, "temperature_s": 26.0, "temperature_t": 26.0, "battery_r": 2.0, "battery_s": 2.0, "battery_t": 2.0, "power": 7.3, "pf": 0.9, "alive": 1, "Loop_name": "F4NR2_SocketPower"}
+{"voltage": 0, "current_r": 0, "current_s": 0, "current_t": 0, "temperature_r": 0, "temperature_s": 0, "temperature_t": 0, "battery_r": 0, "battery_s": 0, "battery_t": 0, "power": 0, "pf": 0, "alive": 2, "power_kwh": 3.223333333333333, "Loop_name": "F4NR2_SocketPower"}
