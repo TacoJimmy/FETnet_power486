@@ -15,7 +15,8 @@ class Config(object):
             'func': '__main__:publish_PowerMeter',
             'args': (1, 2),   
             'trigger': 'interval',
-            'minutes': 1 
+            #'minutes': 1
+            'seconds': 30
         },
         {
             'id': 'read_com1',  
@@ -242,7 +243,9 @@ def setDataMqtt01():
 
 def publish_PowerMeter(a, b):
     
+    
     FET_MQTT.MqttPublish()
+    
     
 def read_com1(a, b):
     try:
