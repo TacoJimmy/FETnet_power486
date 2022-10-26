@@ -1,1 +1,1 @@
-{"voltage": 1, "current_r": 1, "current_s": 1, "current_t": 1, "temperature_r": 1, "temperature_s": 1, "temperature_t": 1, "battery_r": 1, "battery_s": 1, "battery_t": 1, "power": 1, "pf": 1, "alive": 2, "power_kwh": 8.810000000000002, "Loop_name": "F4NL2_LightPower"}
+{"voltage": 1, "current_r": 1, "current_s": 1, "current_t": 1, "temperature_r": 1, "temperature_s": 1, "temperature_t": 1, "battery_r": 1, "battery_s": 1, "battery_t": 1, "power": 1, "pf": 1, "alive": 2, "power_kwh": 8.82666666666667, "Loop_name": "F4NL2_LightPower"}
