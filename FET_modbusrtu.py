@@ -259,7 +259,7 @@ def get_ACPayLoad(payload1,payload2):
 if __name__ == '__main__':
     
     print(read_Main_PowerMeter('/dev/ttyS1',1,1))
-    
+    print(read_Main_PowerMeter('/dev/ttyS1',2,1))
     '''
     #print (getCom1_Power('/dev/ttyS1',1,1))
     #air condition 1
