@@ -12,40 +12,82 @@
 
 
 <div class="tab_css">
-	<input id="tab1" type="radio" name="tab" checked="checked"/>
-	<label for="tab1">Modbus-RTU</label>
+	<!-- Get IPC_data -->
+	<input id="tab1" type="radio" name="tab"/>
+	<label for="tab1">IPC_data</label>
 	<div class="tab_content">
-		<h1>Power MainLoop</h1>
+		<h1>Power SubLoop</h1>
 			<hr style="border: 5px solid;"/>
-        <h3>Power SubLoop03</h3>
-        <button id='btnPowerMainLoop03'>Get MainLoop03</button>
-        <div id="PowerMainLoop03"></div>
+        <h3>IPC Data</h3>
+        <button id='btnIPCData'>Get IPC Data</button>
+        <div id="IPCData"></div>
+        <hr>
+	
+	</div>
+	
+	<!-- Get MainLoop Data -->
+	<input id="tab2" type="radio" name="tab"/>
+	<label for="tab2">MainLoop Data</label>
+	<div class="tab_content">
+		<h1>Power MainLoop01</h1>
+			<hr style="border: 5px solid;"/>
+        <h3>Power MainLoop01</h3>
+        <button id='btnPowerMainLoop01'>Get MainLoop01</button>
+        <div id="PowerMainLoop01"></div>
+        <hr>
+		
+        <h3>Power MainLoop02</h3>
+        <button id='btnPowerMainLoop02'>Get MainLoop02</button>
+        <div id="PowerMainLoop02"></div>
+        <hr>
+	</div>
+		
+	<!-- Get SubLoop Data -->
+	<input id="tab3" type="radio" name="tab" checked="checked"/>
+	<label for="tab3">SubLoop Data</label>
+	<div class="tab_content">
+		<h1>Power SubLoop</h1>
+			<hr style="border: 5px solid;"/>
+        <h3>Power SubLoop01</h3>
+        <button id='btnPowerSubLoop01'>Get SubLoop01</button>
+        <div id="PowerSubLoop01"></div>
+        <hr>
+		<h3>Power SubLoop02</h3>
+        <button id='btnPowerSubLoop02'>Get SubLoop02</button>
+        <div id="PowerSubLoop02"></div>
+        <hr>
+		<h3>Power SubLoop03</h3>
+        <button id='btnPowerSubLoop03'>Get SubLoop03</button>
+        <div id="PowerSubLoop03"></div>
         <hr>
         <h3>Power SubLoop04</h3>
-        <button id='btnPowerMainLoop04'>Get MainLoop04</button>
-        <div id="PowerMainLoop04"></div>
+        <button id='btnPowerSubLoop04'>Get SubLoop04</button>
+        <div id="PowerSubLoop04"></div>
         <hr>
         <h3>Power SubLoop05</h3>
-        <button id='btnPowerMainLoop05'>Get MainLoop05</button>
-        <div id="PowerMainLoop05"></div>
+        <button id='btnPowerSubLoop05'>Get SubLoop05</button>
+        <div id="PowerSubLoop05"></div>
         <hr>
         <h3>Power SubLoop06</h3>
-        <button id='btnPowerMainLoop06'>Get MainLoop06</button>
-        <div id="PowerMainLoop06"></div>
+        <button id='btnPowerSubLoop06'>Get SubLoop06</button>
+        <div id="PowerSubLoop06"></div>
         <hr>
         <h3>Power SubLoop07</h3>
-        <button id='btnPowerMainLoop07'>Get MainLoop07</button>
-        <div id="PowerMainLoop07"></div>
+        <button id='btnPowerSubLoop07'>Get SubLoop07</button>
+        <div id="PowerSubLoop07"></div>
 		<hr>
         <h3>Power SubLoop08</h3>
-        <button id='btnPowerMainLoop08'>Get MainLoop08</button>
-		<div id="PowerMainLoop08"></div>
+        <button id='btnPowerSubLoop08'>Get SubLoop08</button>
+		<div id="PowerSubLoop08"></div>
 		<hr>
-
-    
-	
-
-	</div>
+		<h3>Power SubLoop09</h3>
+        <button id='btnPowerSubLoop09'>Get SubLoop09</button>
+		<div id="PowerSubLoop09"></div>
+		<hr>
+		<h3>Power SubLoop10</h3>
+        <button id='btnPowerSubLoop10'>Get SubLoop10</button>
+		<div id="PowerSubLoop10"></div>
+		<hr>
 </div>
 
 	
@@ -64,54 +106,187 @@
 
     <script>
         $(function () {
-            var $btnPowerMainLoop01 = $('#btnPowerMainLoop01');
-            var $btnPowerMainLoop02 = $('#btnPowerMainLoop02');
-            var $btnPowerMainLoop03 = $('#btnPowerMainLoop03');
-            var $btnPowerMainLoop04 = $('#btnPowerMainLoop04');
-            var $btnPowerMainLoop05 = $('#btnPowerMainLoop05');
-            var $btnPowerMainLoop06 = $('#btnPowerMainLoop06');
-            var $btnPowerMainLoop07 = $('#btnPowerMainLoop07');
-            var $btnPowerMainLoop08 = $('#btnPowerMainLoop08');
-            var $btnPowerMainLoop09 = $('#btnPowerMainLoop09');
-            var $btnPowerMainLoop10 = $('#btnPowerMainLoop10');
-            var $btnPowerMainLoop11 = $('#btnPowerMainLoop11');
-            var $btnPowerMainLoop12 = $('#btnPowerMainLoop12');
-            var $btnPowerMainLoop13 = $('#btnPowerMainLoop13');
-            var $btnPowerMainLoop14 = $('#btnPowerMainLoop14');
-			var $PowerMainLoop01 = $('#PowerMainLoop01');
-            var $PowerMainLoop02 = $('#PowerMainLoop02');
-            var $PowerMainLoop03 = $('#PowerMainLoop03');
-            var $PowerMainLoop04 = $('#PowerMainLoop04');
-            var $PowerMainLoop05 = $('#PowerMainLoop05');
-            var $PowerMainLoop06 = $('#PowerMainLoop06');
-            var $PowerMainLoop07 = $('#PowerMainLoop07');
-            var $PowerMainLoop08 = $('#PowerMainLoop08');
-            var $PowerMainLoop09 = $('#PowerMainLoop09');
-            var $PowerMainLoop10 = $('#PowerMainLoop10');
-            var $PowerMainLoop11 = $('#PowerMainLoop11');
-            var $PowerMainLoop12 = $('#PowerMainLoop12');
-            var $PowerMainLoop13 = $('#PowerMainLoop13');
-            var $PowerMainLoop14 = $('#PowerMainLoop14');
+            var $btnPowerSubLoop01 = $('#btnPowerSubLoop01');
+            var $btnPowerSubLoop02 = $('#btnPowerSubLoop02');
+            var $btnPowerSubLoop03 = $('#btnPowerSubLoop03');
+            var $btnPowerSubLoop04 = $('#btnPowerSubLoop04');
+            var $btnPowerSubLoop05 = $('#btnPowerSubLoop05');
+            var $btnPowerSubLoop06 = $('#btnPowerSubLoop06');
+            var $btnPowerSubLoop07 = $('#btnPowerSubLoop07');
+            var $btnPowerSubLoop08 = $('#btnPowerSubLoop08');
+            var $btnPowerSubLoop09 = $('#btnPowerSubLoop09');
+            var $btnPowerSubLoop10 = $('#btnPowerSubLoop10');
+            var $btnPowerSubLoop11 = $('#btnPowerSubLoop11');
+            var $btnPowerSubLoop12 = $('#btnPowerSubLoop12');
+            var $btnPowerSubLoop13 = $('#btnPowerSubLoop13');
+            var $btnPowerSubLoop14 = $('#btnPowerSubLoop14');
+			var $PowerSubLoop01 = $('#PowerSubLoop01');
+            var $PowerSubLoop02 = $('#PowerSubLoop02');
+            var $PowerSubLoop03 = $('#PowerSubLoop03');
+            var $PowerSubLoop04 = $('#PowerSubLoop04');
+            var $PowerSubLoop05 = $('#PowerSubLoop05');
+            var $PowerSubLoop06 = $('#PowerSubLoop06');
+            var $PowerSubLoop07 = $('#PowerSubLoop07');
+            var $PowerSubLoop08 = $('#PowerSubLoop08');
+            var $PowerSubLoop09 = $('#PowerSubLoop09');
+            var $PowerSubLoop10 = $('#PowerSubLoop10');
+            var $PowerSubLoop11 = $('#PowerSubLoop11');
+            var $PowerSubLoop12 = $('#PowerSubLoop12');
+            var $PowerSubLoop13 = $('#PowerSubLoop13');
+            var $PowerSubLoop14 = $('#PowerSubLoop14');
             
-            $btnPowerMainLoop03.off('click').on('click', function () {
+			$btnPowerSubLoop01.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/subloop01',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerSubLoop01.text("");
+                        $PowerSubLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop01.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop01.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop01.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop01.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop01.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop01.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop01.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			
+			$btnPowerMainLoop01.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/mainloop01',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerMainLoop01.text("");
+                        $PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerMainLoop01.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerMainLoop01.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerMainLoop01.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerMainLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerMainLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerMainLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerMainLoop01.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerMainLoop01.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerMainLoop01.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
+                        $PowerMainLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			$btnPowerMainLoop02.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/mainloop02',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerMainLoop02.text("");
+                        $PowerMainLoop02.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerMainLoop02.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerMainLoop02.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerMainLoop02.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerMainLoop02.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerMainLoop02.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerMainLoop02.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerMainLoop02.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerMainLoop02.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerMainLoop02.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerMainLoop02.append("power[kW] : " + data.power + "<br>");
+                        $PowerMainLoop02.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			$btnPowerSubLoop01.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/subloop01',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerSubLoop01.text("");
+                        $PowerSubLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop01.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop01.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop01.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop01.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop01.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop01.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop01.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop01.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop01.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop01.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop01.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			
+			$btnPowerSubLoop02.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/subloop02',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerSubLoop02.text("");
+                        $PowerSubLoop02.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop02.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop02.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop02.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop02.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop02.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop02.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop02.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop02.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop02.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop02.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop02.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			
+            $btnPowerSubLoop03.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/subloop03',
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop03.text("");
-                        $PowerMainLoop03.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop03.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop03.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop03.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop03.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop03.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop03.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop03.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop03.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop03.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop03.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop03.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop03.text("");
+                        $PowerSubLoop03.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop03.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop03.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop03.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop03.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop03.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop03.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop03.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop03.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop03.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop03.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop03.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -119,25 +294,25 @@
                     }
                 });
             });
-            $btnPowerMainLoop04.off('click').on('click', function () {
+            $btnPowerSubLoop04.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/subloop04',
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop04.text("");
-                        $PowerMainLoop04.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop04.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop04.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop04.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop04.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop04.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop04.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop04.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop04.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop04.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop04.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop04.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop04.text("");
+                        $PowerSubLoop04.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop04.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop04.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop04.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop04.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop04.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop04.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop04.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop04.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop04.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop04.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop04.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -145,25 +320,25 @@
                     }
                 });
             });
-            $btnPowerMainLoop05.off('click').on('click', function () {
+            $btnPowerSubLoop05.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/subloop05',
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop05.text("");
-                        $PowerMainLoop05.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop05.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop05.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop05.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop05.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop05.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop05.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop05.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop05.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop05.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop05.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop05.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop05.text("");
+                        $PowerSubLoop05.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop05.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop05.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop05.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop05.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop05.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop05.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop05.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop05.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop05.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop05.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop05.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -171,25 +346,25 @@
                     }
                 });
             });
-            $btnPowerMainLoop06.off('click').on('click', function () {
+            $btnPowerSubLoop06.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/subloop06',
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop06.text("");
-                        $PowerMainLoop06.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop06.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop06.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop06.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop06.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop06.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop06.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop06.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop06.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop06.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop06.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop06.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop06.text("");
+                        $PowerSubLoop06.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop06.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop06.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop06.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop06.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop06.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop06.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop06.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop06.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop06.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop06.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop06.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -197,25 +372,25 @@
                     }
                 });
             });
-			$btnPowerMainLoop07.off('click').on('click', function () {
+			$btnPowerSubLoop07.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/subloop07',
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop07.text("");
-                        $PowerMainLoop07.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop07.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop07.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop07.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop07.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop07.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop07.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop07.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop07.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop07.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop07.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop07.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop07.text("");
+                        $PowerSubLoop07.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop07.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop07.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop07.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop07.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop07.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop07.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop07.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop07.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop07.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop07.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop07.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -223,25 +398,77 @@
                     }
                 });
             });
-            $btnPowerMainLoop08.off('click').on('click', function () {
+            $btnPowerSubLoop08.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/subloop08',
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop08.text("");
-                        $PowerMainLoop08.append("Voltage[V] : " + data.voltage + "<br>");
-                        $PowerMainLoop08.append("current_r[A] : " + data.current_r + "<br>");
-                        $PowerMainLoop08.append("current_s[A] : " + data.current_s + "<br>");
-                        $PowerMainLoop08.append("current_t[A] : " + data.current_t + "<br>");
-                        $PowerMainLoop08.append("temperature_r[℃] : " + data.temperature_r + "<br>");
-                        $PowerMainLoop08.append("temperature_s[℃] : " + data.temperature_s + "<br>");
-                        $PowerMainLoop08.append("temperature_t[℃] : " + data.temperature_t + "<br>");
-                        $PowerMainLoop08.append("battery_r : " + data.battery_r + "<br>");
-                        $PowerMainLoop08.append("battery_s : " + data.battery_s + "<br>");
-                        $PowerMainLoop08.append("battery_t : " + data.battery_t + "<br>");
-                        $PowerMainLoop08.append("power[kW] : " + data.power + "<br>");
-                        $PowerMainLoop08.append("pf[%] : " + data.pf*100 + "<br>");
+                        $PowerSubLoop08.text("");
+                        $PowerSubLoop08.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop08.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop08.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop08.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop08.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop08.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop08.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop08.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop08.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop08.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop08.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop08.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			$btnPowerSubLoop09.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/subloop09',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerSubLoop09.text("");
+                        $PowerSubLoop09.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop09.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop09.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop09.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop09.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop09.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop09.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop09.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop09.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop09.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop09.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop09.append("pf[%] : " + data.pf*100 + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			$btnPowerSubLoop10.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/subloop10',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerSubLoop10.text("");
+                        $PowerSubLoop10.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop10.append("current_r[A] : " + data.current_r + "<br>");
+                        $PowerSubLoop10.append("current_s[A] : " + data.current_s + "<br>");
+                        $PowerSubLoop10.append("current_t[A] : " + data.current_t + "<br>");
+                        $PowerSubLoop10.append("temperature_r[℃] : " + data.temperature_r + "<br>");
+                        $PowerSubLoop10.append("temperature_s[℃] : " + data.temperature_s + "<br>");
+                        $PowerSubLoop10.append("temperature_t[℃] : " + data.temperature_t + "<br>");
+                        $PowerSubLoop10.append("battery_r : " + data.battery_r + "<br>");
+                        $PowerSubLoop10.append("battery_s : " + data.battery_s + "<br>");
+                        $PowerSubLoop10.append("battery_t : " + data.battery_t + "<br>");
+                        $PowerSubLoop10.append("power[kW] : " + data.power + "<br>");
+                        $PowerSubLoop10.append("pf[%] : " + data.pf*100 + "<br>");
                         
                     },
                     error: function (xhr) {
