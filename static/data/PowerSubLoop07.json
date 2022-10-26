@@ -1,1 +1,1 @@
-{"voltage": 380, "current_r": 13.2, "current_s": 7.1, "current_t": 4.9, "temperature_r": 24.0, "temperature_s": 24.0, "temperature_t": 28.0, "battery_r": 2.0, "battery_s": 2.0, "battery_t": 2.0, "power": 16.3, "pf": 0.9, "alive": 1, "Loop_name": "F4NL1_LightPower"}
+{"voltage": 1, "current_r": 1, "current_s": 1, "current_t": 1, "temperature_r": 1, "temperature_s": 1, "temperature_t": 1, "battery_r": 1, "battery_s": 1, "battery_t": 1, "power": 1, "pf": 1, "alive": 2, "power_kwh": 8.168333333333337, "Loop_name": "F4NL1_LightPower"}
