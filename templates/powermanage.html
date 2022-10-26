@@ -210,7 +210,7 @@
                         $PowerSubLoop01.append("battery_t : " + data.battery_t + "<br>");
                         $PowerSubLoop01.append("power[kW] : " + data.power*0.001 + "<br>");
                         $PowerSubLoop01.append("pf[%] : " + data.pf*100 + "<br>");
-						$PowerSubLoop01.append("powerconsumption[kwh] : " + data.power_kwh + "<br>");
+						$PowerSubLoop01.append("powerconsumption[kwh] : " + data.energy + "<br>");
                         
                     },
                     error: function (xhr) {
@@ -238,7 +238,7 @@
                         $PowerSubLoop02.append("battery_t : " + data.battery_t + "<br>");
                         $PowerSubLoop02.append("power[kW] : " + data.power*0.001 + "<br>");
                         $PowerSubLoop02.append("pf[%] : " + data.pf*100 + "<br>");
-						$PowerSubLoop02.append("powerconsumption[kwh] : " + data.power_kwh + "<br>");
+						$PowerSubLoop02.append("powerconsumption[kwh] : " + data.energy + "<br>");
                         
                     },
                     error: function (xhr) {
