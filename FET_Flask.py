@@ -59,7 +59,7 @@ def powermainloop01():
     if request.method == "GET":
         with open('static/data/PowerMainLoop01.json', 'r') as f:
             data = json.load(f)
-            print("text : ", data)
+            #print("text : ", data)
         f.close
         return jsonify(data)
     
@@ -68,7 +68,7 @@ def powermainloop02():
     if request.method == "GET":
         with open('static/data/PowerMainLoop02.json', 'r') as f:
             data = json.load(f)
-            print("text : ", data)
+            #print("text : ", data)
         f.close
         return jsonify(data)
     
