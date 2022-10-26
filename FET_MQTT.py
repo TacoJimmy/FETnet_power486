@@ -87,6 +87,108 @@ def MqttACSend(mod_payload):
         print ('error')
         return ('error')
 
+def Mainloop01Cal():
+    try:
+        clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
+        PowerPayload = {}
+        with open('static/data/PowerSubLoop03.json', 'r') as f:
+            F4NR2_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop04.json', 'r') as f:
+            F4NL2_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop05.json', 'r') as f:
+            F4EL2_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop06.json', 'r') as f:
+            F4EL1_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop07.json', 'r') as f:
+            F4NL1_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop08.json', 'r') as f:
+            F4NR1_data = json.load(f)
+        f.close
+        clamp[0]["voltage"] = F4NR2_data["voltage"]
+        clamp[0]["current_r"]= F4NR2_data["current_r"] + F4NL2_data["current_r"] + F4NL1_data["current_r"]
+        clamp[0]["current_s"]= F4NR2_data["current_s"] + F4NL2_data["current_s"] + F4NL1_data["current_s"]
+        clamp[0]["current_t"]= F4NR2_data["current_t"] + F4NL2_data["current_t"] + F4NL1_data["current_t"]
+        clamp[0]["temperature_r"]= 30
+        clamp[0]["temperature_s"]= 30
+        clamp[0]["temperature_t"]= 30
+        clamp[0]["battery_r"]= 2
+        clamp[0]["battery_s"]= 2
+        clamp[0]["battery_t"]= 2
+        clamp[0]["power"]= F4NR2_data["power"] + F4NL2_data["power"] + F4NL1_data["power"]
+        clamp[0]["pf"]= F4NR2_data["pf"]
+        clamp[0]["alive"]= 1   
+        
+        
+    except:
+        clamp[0]["alive"]= 2
+    
+    PowerPayload[0] = [{"access_token": "WImETF1BotX8l1xIkZ3K",
+             "app": "ems_demo_fet",
+             "type": "3P3WMETER",
+             "data": [{"values":clamp[0]}]}]
+    
+    with open('static/data/PowerMainLoop01.json', 'w') as f:
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+    f.close
+    
+    return PowerPayload
+    
+def Mainloop02Cal():
+    try:
+        clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
+        PowerPayload = {}
+        with open('static/data/PowerSubLoop03.json', 'r') as f:
+            F4NR2_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop04.json', 'r') as f:
+            F4NL2_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop05.json', 'r') as f:
+            F4EL2_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop06.json', 'r') as f:
+            F4EL1_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop07.json', 'r') as f:
+            F4NL1_data = json.load(f)
+        f.close
+        with open('static/data/PowerSubLoop08.json', 'r') as f:
+            F4NR1_data = json.load(f)
+        f.close
+        clamp[0]["voltage"] = F4EL1_data["voltage"]
+        clamp[0]["current_r"]= F4EL1_data["current_r"] + F4EL2_data["current_r"]
+        clamp[0]["current_s"]= F4EL1_data["current_s"] + F4EL2_data["current_s"]
+        clamp[0]["current_t"]= F4EL1_data["current_t"] + F4EL2_data["current_t"]
+        clamp[0]["temperature_r"]= 30
+        clamp[0]["temperature_s"]= 30
+        clamp[0]["temperature_t"]= 30
+        clamp[0]["battery_r"]= 2
+        clamp[0]["battery_s"]= 2
+        clamp[0]["battery_t"]= 2
+        clamp[0]["power"]= F4EL1_data["power"] + F4EL2_data["power"] 
+        clamp[0]["pf"]= F4EL1_data["pf"]
+        clamp[0]["alive"]= 1   
+        
+        
+    except:
+        clamp[0]["alive"]= 2
+    
+    PowerPayload[0] = [{"access_token": "wFeXyzMjZvTB4hhZ6a1c",
+             "app": "ems_demo_fet",
+             "type": "3P3WMETER",
+             "data": [{"values":clamp[0]}]}]
+    
+    with open('static/data/PowerMainLoop02.json', 'w') as f:
+        json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+    f.close
+    
+    return PowerPayload
+    
 def MqttPublish():
     try:
         #PowerInfor = PowerLoop()
@@ -108,6 +210,9 @@ def MqttPublish():
         MqttSend(SubLoop01)
         SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
         MqttSend(SubLoop02)
+        
+        Mainloop01Cal()
+        Mainloop02Cal()
                 
         print('ok')
         return ('OK')
