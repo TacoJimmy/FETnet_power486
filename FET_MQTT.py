@@ -244,7 +244,8 @@ def IPC_Data():
         b.close
         
         
-        clamp[0]["power"]= mainpower01["power"]+mainpower02["power"]
+        TotalMainPower = mainpower01["power"]+mainpower02["power"]
+        clamp[0]["Main_Power"] = TotalMainPower
     
         PowerPayload[0] = [{"access_token": "nV5IbdeFN3I2Wjud96d8",
              "app": "ems_demo_fet",
