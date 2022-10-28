@@ -125,7 +125,9 @@ def Mainloop01Cal():
         
         
     except:
-        clamp[0]["alive"]= 2
+        clamp[0]["alive"]= 0
+        
+    clamp[0]["Loop_name"]= "F4NP1_常用總電源"
     
     PowerPayload[0] = [{"access_token": "WImETF1BotX8l1xIkZ3K",
              "app": "ems_demo_fet",
@@ -176,7 +178,9 @@ def Mainloop02Cal():
         
         
     except:
-        clamp[0]["alive"]= 2
+        clamp[0]["alive"]= 0
+        
+    clamp[0]["Loop_name"]= "F4NE1_備用總電源"
     
     PowerPayload[0] = [{"access_token": "wFeXyzMjZvTB4hhZ6a1c",
              "app": "ems_demo_fet",
@@ -206,7 +210,7 @@ def MqttPublish():
         ACPayload = FET_modbusrtu.get_ACPayLoad(SubACLoop01,SubACLoop02)
         #print(ACPayload)
         MqttACSend(ACPayload)
-        '''
+        
         SubLoop01 = FET_modbustcp.getPowerLoop01('192.168.1.10',502,MainLoop01[0],MainLoop01[5])
         MqttSend(SubLoop01)
         SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
@@ -214,7 +218,7 @@ def MqttPublish():
         
         Mainloop01Cal()
         Mainloop02Cal()
-        '''       
+               
         print('ok')
         return ('OK')
         
