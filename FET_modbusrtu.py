@@ -106,7 +106,7 @@ def read_Main_PowerMeter(PORT,ID,loop):
         master.close()
         time.sleep(0.5)
         return (MainPW_meter)
-
+'''
 def get_subloop01():
     
     PowerPayload = {}
@@ -131,7 +131,8 @@ def get_subloop01():
     f.close
     
     return PowerPayload
-
+'''
+   
 def get_MainPayLoad(payload1,payload2):
     PowerPayload = {}
     clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
@@ -180,7 +181,7 @@ def get_MainPayLoad(payload1,payload2):
         payload_data = [{"values":clamp}]
             
     clamp[0]["Loop_name"] = "F4NP1_normalpower"
-    clamp[1]["Loop_name"] = "F4ENP1_backuppower"
+    clamp[1]["Loop_name"] = "F4EP1_backuppower"
     
     PowerPayload[0] = [{"access_token": "WImETF1BotX8l1xIkZ3K",
              "app": "ems_demo_fet",
@@ -247,22 +248,23 @@ def get_ACPayLoad(payload1,payload2):
             clamp[i]["alive"]= 2
         payload_data = [{"values":clamp}]
             
+    clamp[0]["Loop_name"] = "F4NP1_normalpower"
+    clamp[1]["Loop_name"] = "F4EP1_backuppower"    
     
-    
-    PowerPayload[0] = [{"access_token": "Y6zh8VvY4cDzFJ2CjMUM",
+    PowerPayload[0] = [{"access_token": "RtKzCEgphGCq53CrCvq3",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[0]}]}]
-    PowerPayload[1] = [{"access_token": "k1aI1WDkbZQI0vSdjxR4",
+    PowerPayload[1] = [{"access_token": "eEUb9N4SbTHpblayLA5Q",
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":clamp[1]}]}]
     
-    with open('static/data/PowerSubLoop09.json', 'w') as f:
+    with open('static/data/PowerSubLoop01.json', 'w') as f:
         json.dump(PowerPayload[0][0]["data"][0]["values"], f)
     f.close
     
-    with open('static/data/PowerSubLoop10.json', 'w') as f:
+    with open('static/data/PowerSubLoop02.json', 'w') as f:
         json.dump(PowerPayload[1][0]["data"][0]["values"], f)
     f.close
     
