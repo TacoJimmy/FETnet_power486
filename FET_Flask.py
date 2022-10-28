@@ -54,7 +54,7 @@ def powermanageMessage():
 @app.route('/powermanage/ipc', methods=['GET'])
 def poweripc():
     if request.method == "GET":
-        with open('static/data/jpc.json', 'r') as f:
+        with open('static/data/ipc.json', 'r') as f:
             data = json.load(f)
             print("text : ", data)
         f.close
