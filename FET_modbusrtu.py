@@ -65,7 +65,7 @@ def read_Main_PowerMeter(PORT,ID,loop):
         master = modbus_rtu.RtuMaster(serial.Serial(port=PORT, baudrate=9600, bytesize=8, parity='N', stopbits=1, xonxoff=0))
         master.set_timeout(5.0)
         master.set_verbose(True)
-        pw_va = master.execute(ID, cst.READ_HOLDING_REGISTERS, 320, 1)
+        pw_va = master.execute(ID, cst.READ_HOLDING_REGISTERS, 304, 1)
         pw_cur = master.execute(ID, cst.READ_HOLDING_REGISTERS, 321, 6)
         pw_power = master.execute(ID, cst.READ_HOLDING_REGISTERS, 338, 1)
         pw_pf = master.execute(ID, cst.READ_HOLDING_REGISTERS, 358, 1)
