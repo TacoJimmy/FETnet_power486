@@ -5,6 +5,19 @@ import serial
 import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
 import json  
+import struct
+
+def ReadFloat(*args,reverse=False):
+    for n,m in args:
+        n,m = '%04x'%n,'%04x'%m
+    if reverse:
+        v = n + m
+    else:
+        v = m + n
+    y_bytes = bytes.fromhex(v)
+    y = struct.unpack('!f',y_bytes)[0]
+    y = round(y,6)
+    return y
 
 def getCom1_Power(ComPort,BbaudRate,ID,Func):
     try:
@@ -78,7 +91,7 @@ def read_Main_PowerMeter(PORT,ID,loop):
         MainPW_meter[2] = round(pw_cur[3] * 0.001,1)
         MainPW_meter[3] = round(pw_cur[5] * 0.001,1)
         MainPW_meter[4] = round(pw_power[0] * 0.01,1)
-        MainPW_meter[5] = round(pw_pf[0]*0.001,1)
+        MainPW_meter[5] = pw_pf[0]
         MainPW_meter[6] = round((pw_consum[1] + pw_consum[0] * 65535)*0.1,1)
         #MainPW_meter[6] = round(pw_consum[0],1)
         MainPW_meter[7] = 1
