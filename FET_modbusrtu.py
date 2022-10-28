@@ -188,10 +188,10 @@ def get_MainPayLoad(payload1,payload2):
              "type": "3P4WMETER",
              "data": [{"values":clamp[1]}]}]
     
-    with open('static/data/PowerSubLoop01.json', 'w') as f:
+    with open('static/data/PowerMainLoop01.json', 'w') as f:
         json.dump(PowerPayload[0][0]["data"][0]["values"], f)
     f.close
-    with open('static/data/PowerSubLoop02.json', 'w') as f:
+    with open('static/data/PowerMainLoop02.json', 'w') as f:
         json.dump(PowerPayload[1][0]["data"][0]["values"], f)
     f.close
     
