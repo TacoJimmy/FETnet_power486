@@ -269,7 +269,7 @@ if __name__ == '__main__':
     live_server = Server(app.wsgi_app)
     live_server.watch('**/*.*')
     #live_server.serve(host='0.0.0.0',open_url_delay=True)
-    live_server.serve(open_url=False,open_url_delay=None, live_css=False, host='0.0.0.0', debug=True, live_css=False)
+    live_server.serve(open_url=False, open_url_delay=None, live_css=False, host='0.0.0.0', debug=True, restart_delay=100)
         
     #app.run('0.0.0.0', debug=True)
     
