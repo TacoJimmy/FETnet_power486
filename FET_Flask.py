@@ -249,6 +249,7 @@ def setDataMqtt01():
 def publish_PowerMeter(a, b):
     
     FET_MQTT.MqttPublish()
+    FET_MQTT.IPC_Data()
     
 def read_com1(a, b):
     
