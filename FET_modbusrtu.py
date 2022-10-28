@@ -177,8 +177,8 @@ def get_MainPayLoad(payload1,payload2):
             clamp[i]["alive"]= 2
         payload_data = [{"values":clamp}]
             
-    clamp[0]["name"] = round(payload2[6],1)
-    clamp[1]["name"] = round(payload2[6],1)
+    clamp[0]["Loop_name"] = "F4NP1_常用電源"
+    clamp[1]["Loop_name"] = "F4ENP1_備用電源"
     
     PowerPayload[0] = [{"access_token": "WImETF1BotX8l1xIkZ3K",
              "app": "ems_demo_fet",
