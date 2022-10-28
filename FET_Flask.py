@@ -1,3 +1,5 @@
+# coding:utf-8
+import codecs
 from flask import Flask, render_template, request, jsonify, json
 import schedule  
 import time  
