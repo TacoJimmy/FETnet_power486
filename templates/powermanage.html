@@ -140,8 +140,8 @@
                     data: {},
                     type: 'GET',
                     success: function (data) {
-                        $PowerMainLoop01.text("");
-                        $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
+                        $IPCData.text("");
+                        $IPCData.append("power[kW] : " + data.power + "<br>");
                         
                     },
                     error: function (xhr) {
