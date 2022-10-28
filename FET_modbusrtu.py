@@ -1,3 +1,5 @@
+# coding:utf-8
+import codecs
 import time
 import serial
 import modbus_tk.defines as cst
