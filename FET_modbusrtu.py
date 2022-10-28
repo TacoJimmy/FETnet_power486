@@ -262,8 +262,8 @@ def get_ACPayLoad(payload1,payload2):
             clamp[i]["alive"]= 2
         payload_data = [{"values":clamp}]
             
-    clamp[0]["Loop_name"] = "F4NP1_normalpower"
-    clamp[1]["Loop_name"] = "F4EP1_backuppower"    
+    clamp[0]["Loop_name"] = "F4NP2_nomal_ACPower"
+    clamp[1]["Loop_name"] = "F4EP2_backup_ACPower"    
     
     PowerPayload[0] = [{"access_token": "RtKzCEgphGCq53CrCvq3",
              "app": "ems_demo_fet",
