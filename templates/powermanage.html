@@ -98,7 +98,9 @@
 
     <script>
         $(function () {
-            var $btnPowerMainLoop01 = $('#btnPowerMainLoop01');
+            btnIPCData
+			var $btnIPCData = $('#btnIPCData');
+			var $btnPowerMainLoop01 = $('#btnPowerMainLoop01');
 			var $btnPowerMainLoop02 = $('#btnPowerMainLoop02');
 			var $btnPowerSubLoop01 = $('#btnPowerSubLoop01');
             var $btnPowerSubLoop02 = $('#btnPowerSubLoop02');
@@ -114,6 +116,7 @@
             var $btnPowerSubLoop12 = $('#btnPowerSubLoop12');
             var $btnPowerSubLoop13 = $('#btnPowerSubLoop13');
             var $btnPowerSubLoop14 = $('#btnPowerSubLoop14');
+			var $IPCData = $('#IPCData');
 			var $PowerMainLoop01 = $('#PowerMainLoop01');
 			var $PowerMainLoop02 = $('#PowerMainLoop02');
             var $PowerSubLoop01 = $('#PowerSubLoop01');
@@ -131,6 +134,23 @@
             var $PowerSubLoop13 = $('#PowerSubLoop13');
             var $PowerSubLoop14 = $('#PowerSubLoop14');
             
+			$btnIPCData.off('click').on('click', function () {
+                $.ajax({
+                    url: '/powermanage/ipc',
+                    data: {},
+                    type: 'GET',
+                    success: function (data) {
+                        $PowerMainLoop01.text("");
+                        $PowerMainLoop01.append("power[kW] : " + data.power + "<br>");
+                        
+                    },
+                    error: function (xhr) {
+                        alert('Ajax request 發生錯誤');
+                    }
+                });
+            });
+			
+			
 			$btnPowerMainLoop01.off('click').on('click', function () {
                 $.ajax({
                     url: '/powermanage/mainloop01',
