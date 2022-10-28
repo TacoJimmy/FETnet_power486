@@ -77,7 +77,8 @@ def read_Main_PowerMeter(PORT,ID,loop):
         MainPW_meter[3] = round(pw_cur[5] * 0.001,1)
         MainPW_meter[4] = round(pw_power[0] * 0.01,1)
         MainPW_meter[5] = round(pw_pf[0]*0.001,1)
-        MainPW_meter[6] = round((pw_consum[1] + pw_consum[0] * 65535)*0.1,1)
+        #MainPW_meter[6] = round((pw_consum[1] + pw_consum[0] * 65535)*0.1,1)
+        MainPW_meter[6] = round(pw_consum[1],1)
         MainPW_meter[7] = 1
         #MainPW_meter[0] =  round(pw_va[0] * 0.1,1)
         #MainPW_meter[1] =  round(pw_cur[0] * 0.01,1)
