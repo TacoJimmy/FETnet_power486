@@ -48,46 +48,38 @@
 	<div class="tab_content">
 		<h1>Power SubLoop</h1>
 			<hr style="border: 5px solid;"/>
-        <h3>Power SubLoop01</h3>
+        <h3>(NP2常用空調電力)SubLoop01</h3>
         <button id='btnPowerSubLoop01'>Get SubLoop01</button>
         <div id="PowerSubLoop01"></div>
         <hr>
-		<h3>Power SubLoop02</h3>
+		<h3>(EP2備用空調電力)SubLoop02</h3>
         <button id='btnPowerSubLoop02'>Get SubLoop02</button>
         <div id="PowerSubLoop02"></div>
         <hr>
-		<h3>Power SubLoop03</h3>
+		<h3>(NR2插座電力)SubLoop03</h3>
         <button id='btnPowerSubLoop03'>Get SubLoop03</button>
         <div id="PowerSubLoop03"></div>
         <hr>
-        <h3>Power SubLoop04</h3>
+        <h3>(NL2照明電力)SubLoop04</h3>
         <button id='btnPowerSubLoop04'>Get SubLoop04</button>
         <div id="PowerSubLoop04"></div>
         <hr>
-        <h3>Power SubLoop05</h3>
+        <h3>(EL2備用電力)SubLoop05</h3>
         <button id='btnPowerSubLoop05'>Get SubLoop05</button>
         <div id="PowerSubLoop05"></div>
         <hr>
-        <h3>Power SubLoop06</h3>
+        <h3>(NR1插座電力)SubLoop06</h3>
         <button id='btnPowerSubLoop06'>Get SubLoop06</button>
         <div id="PowerSubLoop06"></div>
         <hr>
-        <h3>Power SubLoop07</h3>
+        <h3>(NL1照明電力)SubLoop07</h3>
         <button id='btnPowerSubLoop07'>Get SubLoop07</button>
         <div id="PowerSubLoop07"></div>
 		<hr>
-        <h3>Power SubLoop08</h3>
+        <h3>(EL1備用電力)SubLoop08</h3>
         <button id='btnPowerSubLoop08'>Get SubLoop08</button>
 		<div id="PowerSubLoop08"></div>
-		<hr>
-		<h3>Power SubLoop09</h3>
-        <button id='btnPowerSubLoop09'>Get SubLoop09</button>
-		<div id="PowerSubLoop09"></div>
-		<hr>
-		<h3>Power SubLoop10</h3>
-        <button id='btnPowerSubLoop10'>Get SubLoop10</button>
-		<div id="PowerSubLoop10"></div>
-		<hr>
+
 </div>
 
 	
@@ -200,7 +192,8 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop01.text("");
-                        $PowerSubLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerSubLoop01.append("Name : " + data.Loop_name + "<br>");
+						$PowerSubLoop01.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop01.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop01.append("current_s[A] : " + data.current_s + "<br>");
                         $PowerSubLoop01.append("current_t[A] : " + data.current_t + "<br>");
@@ -228,6 +221,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop02.text("");
+						$PowerSubLoop02.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop02.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop02.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop02.append("current_s[A] : " + data.current_s + "<br>");
@@ -256,6 +250,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop03.text("");
+						$PowerSubLoop03.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop03.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop03.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop03.append("current_s[A] : " + data.current_s + "<br>");
@@ -283,6 +278,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop04.text("");
+						$PowerSubLoop04.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop04.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop04.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop04.append("current_s[A] : " + data.current_s + "<br>");
@@ -310,6 +306,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop05.text("");
+						$PowerSubLoop05.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop05.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop05.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop05.append("current_s[A] : " + data.current_s + "<br>");
@@ -337,6 +334,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop06.text("");
+						$PowerSubLoop06.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop06.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop06.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop06.append("current_s[A] : " + data.current_s + "<br>");
@@ -364,6 +362,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop07.text("");
+						$PowerSubLoop07.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop07.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop07.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop07.append("current_s[A] : " + data.current_s + "<br>");
@@ -391,6 +390,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerSubLoop08.text("");
+						$PowerSubLoop08.append("Name : " + data.Loop_name + "<br>");
                         $PowerSubLoop08.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerSubLoop08.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerSubLoop08.append("current_s[A] : " + data.current_s + "<br>");
