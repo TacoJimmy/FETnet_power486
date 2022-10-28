@@ -251,7 +251,7 @@ def IPC_Data():
              "type": "3P3WMETER",
              "data": [{"values":clamp[0]}]}]
     
-        with open('static/data/jpc.json', 'w') as f:
+        with open('static/data/ipc.json', 'w') as f:
             json.dump(PowerPayload[0][0]["data"][0]["values"], f)
         f.close
         
