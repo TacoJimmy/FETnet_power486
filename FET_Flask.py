@@ -19,15 +19,15 @@ class Config(object):
             'func': '__main__:publish_PowerMeter',
             'args': (1, 2),   
             'trigger': 'interval',
-            #'minutes': 1
-            'seconds': 10
+            'minutes': 1
+            
         },
         {
             'id': 'read_com1',  
             'func': '__main__:read_com1',
             'args': (1, 2),   
             'trigger': 'interval',
-            'seconds': 10 
+            'seconds': 15 
         }
     ]
     SCHEDULER_API_ENABLED = True
