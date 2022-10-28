@@ -218,6 +218,10 @@ def MqttPublish():
         
         Mainloop01Cal()
         Mainloop02Cal()
+        
+        
+        
+        
                
         print('ok')
         return ('OK')
@@ -225,6 +229,34 @@ def MqttPublish():
     except:
         print ('error')
         return ('error')
+
+def IPC_Data():
+    PowerPayload ={}
+    clamp=[{"voltage":{}},{"voltage":{}},{"voltage":{}}]
+    try:
+        
+        
+        with open('static/data/PowerMainLoop01.json', 'r') as a:
+            mainpower01 = json.load(a)
+        a.close
+        with open('static/data/PowerMainLoop02.json', 'r') as b:
+            mainpower02 = json.load(b)
+        b.close
+        
+        
+        clamp[0]["power"]= mainpower01["power"]+mainpower02["power"]
+    
+        PowerPayload[0] = [{"access_token": "nV5IbdeFN3I2Wjud96d8",
+             "app": "ems_demo_fet",
+             "type": "3P3WMETER",
+             "data": [{"values":clamp[0]}]}]
+    
+        with open('static/data/jpc.json', 'w') as f:
+            json.dump(PowerPayload[0][0]["data"][0]["values"], f)
+        f.close
+        
+    except:
+        pass
 
 def Pub_infor():
     try:
