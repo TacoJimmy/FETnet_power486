@@ -216,8 +216,8 @@ def MqttPublish():
         SubLoop02 = FET_modbustcp.getPowerLoop02('192.168.1.11',502,MainLoop01[0],MainLoop01[5])
         MqttSend(SubLoop02)
         
-        Mainloop01Cal()
-        Mainloop02Cal()
+        #Mainloop01Cal()
+        #Mainloop02Cal()
         
         
         
