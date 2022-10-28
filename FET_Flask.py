@@ -6,7 +6,9 @@ from flask_apscheduler import APScheduler
 import FET_MQTT
 import FET_modbusrtu
 import FET_modbustcp
+from livereload import Server
 app = Flask(__name__)
+
 
 class Config(object):
     JOBS = [
@@ -16,18 +18,19 @@ class Config(object):
             'args': (1, 2),   
             'trigger': 'interval',
             #'minutes': 1
-            'seconds': 30
+            'seconds': 10
         },
         {
             'id': 'read_com1',  
             'func': '__main__:read_com1',
             'args': (1, 2),   
             'trigger': 'interval',
-            'seconds': 15 
+            'seconds': 10 
         }
     ]
     SCHEDULER_API_ENABLED = True
 
+@app.route('/')
 @app.route('/setup')
 def webapi():
     return render_template('setup.html')
@@ -243,11 +246,10 @@ def setDataMqtt01():
 
 def publish_PowerMeter(a, b):
     
-    
     FET_MQTT.MqttPublish()
     
-    
 def read_com1(a, b):
+    
     try:
         FET_modbustcp.power_count()   
     except:
@@ -259,5 +261,12 @@ if __name__ == '__main__':
     app.config.from_object(Config())
     scheduler = APScheduler()
     scheduler.init_app(app) 
-    scheduler.start()    
-    app.run('0.0.0.0', debug=True)
+    scheduler.start()
+    
+    live_server = Server(app.wsgi_app)
+    live_server.watch('**/*.*')
+    live_server.serve(host='0.0.0.0',open_url_delay=True)
+        
+    #app.run('0.0.0.0', debug=True)
+    
+    
