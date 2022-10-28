@@ -146,7 +146,8 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerMainLoop01.text("");
-                        $PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
+                        $PowerMainLoop01.append("Name : " + data.Loop_name + "<br>");
+						$PowerMainLoop01.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerMainLoop01.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerMainLoop01.append("current_s[A] : " + data.current_s + "<br>");
                         $PowerMainLoop01.append("current_t[A] : " + data.current_t + "<br>");
@@ -172,6 +173,7 @@
                     type: 'GET',
                     success: function (data) {
                         $PowerMainLoop02.text("");
+						$PowerMainLoop02.append("Name : " + data.Loop_name + "<br>");
                         $PowerMainLoop02.append("Voltage[V] : " + data.voltage + "<br>");
                         $PowerMainLoop02.append("current_r[A] : " + data.current_r + "<br>");
                         $PowerMainLoop02.append("current_s[A] : " + data.current_s + "<br>");
